@@ -1,0 +1,34 @@
+%Common style that will be used for titles and descriptions
+\newcommand{\titlestyle}{\color{DodgerBlue4}\sffamily}
+\newcommand{\descriptionstyle}{\color{DodgerBlue3}\bfseries}
+%Format titles
+\titleformat*{\section}{\titlestyle \bfseries \Large}
+\titleformat*{\subsection}{\titlestyle \bfseries}
+
+%Lists (requires enumitem package):
+%Font for description
+\setlist[description]{font=\descriptionstyle}
+%Compact lists
+\setlist[1]{\labelindent=\parindent}
+\setlist[1]{topsep=3pt, itemsep=0pt}
+
+%Format main title
+\let\prevtitle\title
+\renewcommand{\title}[1]{\prevtitle{\titlestyle #1}}
+\let\prevauthor\author
+\renewcommand{\author}[1]{\prevauthor{\titlestyle #1}}
+\let\prevdate\date
+\renewcommand{\date}[1]{\prevdate{\titlestyle #1}}
+\renewcommand{\paragraph}[1]{\par\noindent{\titlestyle\small\bfseries #1.~}}
+\renewcommand{\subparagraph}[1]{\par\noindent{\small\itshape\sffamily\bfseries #1.~}}
+
+% Format mdframed boxes
+\mdfsetup{%
+  middlelinecolor=DodgerBlue4,
+  middlelinewidth=1pt,
+  %backgroundcolor=red!10,
+  roundcorner=3pt}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

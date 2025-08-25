@@ -1,0 +1,66 @@
+\usepackage{tikz}
+\usepackage{xcolor}
+
+%colors
+\definecolor{Blue}{rgb}{0.05,0.2,0.5}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
+\definecolor{LightBlue}{rgb}{.2431,.5451,.8588}
+\definecolor{Red}{rgb}{1.0,0,0}
+\definecolor{LightGray}{rgb}{0.95,0.95,0.95}
+
+%for callouts
+\usetikzlibrary{calc,chains,positioning,shapes.callouts}
+
+%bullet points
+\renewcommand{\labelitemi}{\color{LightBlue}{$\bullet$}}
+
+%highlighting
+\newcommand{\alert}[1]{{\color{LightBlue} #1}}
+
+%rounded boxes
+\newenvironment{roundboxes}[1][]
+{\begin{tikzpicture}[start chain,node distance=2cm,
+ every node/.style={on chain, text=black,fill=LightBlue!20, rounded corners=0.6cm},#1]
+}
+{\end{tikzpicture}
+}
+
+%Define anchors for callouts
+\newcommand{\anchor}[1]{\tikz[remember picture] \coordinate (#1);}
+
+%Insert callouts. Syntax:
+%\callout[optionalStyle]{pointer}{positionRelativeToThePointer}{text}
+\newcommand{\callout}[4][]{\begin{tikzpicture}[remember picture, overlay]
+ \node[rectangle callout, fill=gray!50, #1, callout absolute pointer={#2}] at ($ #2 + #3 $) {#4};
+\end{tikzpicture}
+}
+
+%Rounded box to highlight plus define anchor
+\newcommand{\enboxref}[3][]{
+  \tikz[baseline,remember picture]{
+    \node[fill=gray!20,anchor=base,rounded corners=0.6cm,#1] (#2) {#3};
+  }
+}
+
+%Boxes to define sections
+\newlength{\sectionboxpadding}
+\setlength{\sectionboxpadding}{5mm}
+
+\newcommand{\sectionboxcolor}{LightBlue}
+
+\newcommand{\sectionboxstart}[1]{\makebox[0cm][l]{\anchor{#1 a}}}
+\newcommand{\sectionboxend}[1]{\makebox[0cm][l]{\anchor{#1 b}} \vspace{-3em}\\}
+\newcommand{\sectionboxdraw}[2][]{\begin{tikzpicture}[remember picture, overlay,#1]
+ \draw[rounded corners, line width=5pt, draw=\sectionboxcolor] ($(#2 a)+(0,0.6em)+(-\sectionboxpadding,\sectionboxpadding)+(0,0.4em)$) rectangle ($(#2 b)+(\textwidth,1em)+(\sectionboxpadding,-\sectionboxpadding)+(0,0.4em)$);
+\end{tikzpicture}
+}
+
+\newcommand{\generalboxdraw}{
+\begin{tikzpicture}[remember picture, overlay, LightBlue]
+\draw[line width=5pt] ($(current page.north west) + (2,-13.5)$) rectangle ($(current page.south east) + (-2,3)$);
+\end{tikzpicture}
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

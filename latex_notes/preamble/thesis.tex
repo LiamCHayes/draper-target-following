@@ -1,0 +1,71 @@
+% Additional settings and packages for the BU thesis
+\usepackage[utf8]{inputenc}
+
+% formatting
+
+% set font to times new roman
+\usepackage{newtxtext,newtxmath}
+
+% set font size for headings
+\usepackage{sectsty}
+\chapterfont{\Large}
+\sectionfont{\normalsize}
+\subsectionfont{\normalsize}
+% \allsectionsfont{\normalsize} % uncomment if you want all headings normal size
+
+% set margins
+\usepackage[letterpaper, top=1.5in, left=1.5in, right=1in, bottom=1in]{geometry}
+
+% sets label font in captions to bold font
+\usepackage[labelfont=bf]{caption}
+
+% set hyperreferences
+% \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor= [rgb]{0.03, 0.44, 0.67},
+    citecolor= [rgb]{0.03, 0.44, 0.67},
+    linktocpage = true,
+    bookmarks=true,
+    urlcolor=cyan,
+}
+
+% set double spacing
+\usepackage{setspace}
+\doublespacing
+
+% set single spacing in subequations enviornment
+\BeforeBeginEnvironment{subequations}{\begin{singlespace}}
+\AfterEndEnvironment{subequations}{\end{singlespace}\noindent\ignorespaces}
+
+% set single spacing in equation enviornment
+\BeforeBeginEnvironment{equation}{\begin{singlespace}}
+\AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
+
+% set single spacing in align enviornment
+\BeforeBeginEnvironment{align}{\begin{singlespace}}
+\AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
+
+% set single spacing in lstlisting enviornment
+\BeforeBeginEnvironment{lstlisting}{\begin{singlespace}}
+\AfterEndEnvironment{lstlisting}{\end{singlespace}\noindent\ignorespaces}
+
+
+% additional packages
+
+\usepackage{longtable} % table span multiple pages
+\usepackage{tcolorbox} % framed color box
+\usepackage{lscape,afterpage} % landscape pages
+\usepackage{listings} % codes
+\lstset{escapeinside={<@}{@>}} % command to escape within lstlisting
+
+
+% description w/out bold font
+% \setlist[description]{font=\normalfont}
+
+% the header is empty and the footer contains page numbers in the centre
+\pagestyle{plain}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

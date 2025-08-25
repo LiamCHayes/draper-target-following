@@ -1,0 +1,27 @@
+\usepackage{graphicx}
+\usepackage[table,x11names,dvipsnames,svgnames]{xcolor}%
+\usepackage{pgffor}
+\input{preamble/markupAndCommenting}
+\input{preamble/splitting}
+\input{preamble/utilities}
+\usepackage{hyperref}
+\pagestyle{empty}
+
+\KOMAoptions{fromphone,fromemail,fromlogo,backaddress=false,foldmarks=false}
+\setkomavar{fromname}{Assistant Professor Roberto Tron}
+\setkomavar{fromaddress}{Mechanical Engineering, System Engineering\\110 Cummington Mall, Room 301\\Boston, MA 02215}
+\setkomavar{fromphone}{+1 617~353~3951}
+\setkomavar{fromemail}{tron@bu.edu}
+\setkomavar{fromlogo}{\includegraphics[height=5.8em]{figures/BostonUniversity}}
+\setkomafont{fromname}{\sffamily\footnotesize}
+\setkomafont{fromaddress}{\sffamily\footnotesize}
+\setkomavar{signature}{\includegraphics[width=5cm]{figures/signature}\\Roberto Tron}
+
+\newcommand{\noaddress}{
+  \csname @setplength\endcsname{sigbeforevskip}{\parskip}
+  \csname @setplength\endcsname{refvpos}{\useplength{toaddrvpos}}
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

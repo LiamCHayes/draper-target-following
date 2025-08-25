@@ -1,0 +1,505 @@
+@article{Wanasinghe:TASE15,
+  title={Distributed Leader-Assistive Localization Method for a Heterogeneous Multirobotic System},
+  author={T. R. Wanasinghe and G. K. I. Mann and R. G. Gosine},
+  journal=IEEE_J_ASE,
+  volume={12},
+  number={3},
+  pages={795--809},
+  year={2015},
+  publisher={IEEE}
+}
+
+@inproceedings{Martinelli:IROS07,
+  title={Improving the precision on multi robot localization by using a series of filters hierarchically distributed},
+  author={A. Martinelli},
+  booktitle=IEEE_C_IROS,
+  pages={1053--1058},
+  year={2007},
+  notes={Divides robots into groups, uses hierarchy of filters, neglects cross-correlation between groups}
+}
+@inproceedings{Kia:IROS14,
+  title={A centralized-equivalent decentralized implementation of extended Kalman filters for cooperative localization},
+  author={S. S. Kia and S. F. Rounds and S. Martinez},
+  booktitle=IEEE_C_IROS,
+  pages={3761--3766},
+  year={2014},
+  notes={Elects a master each time a global update is necessary}
+}
+
+@article{kia2016cooperative,
+  title={Cooperative localization for mobile agents: A recursive decentralized algorithm based on {K}alman-filter decoupling},
+  author={Kia, Solmaz S and Rounds, Stephen and Martinez, Sonia},
+  journal=IEEE_M_CS,
+  volume={36},
+  number={2},
+  pages={86--101},
+  year={2016},
+  publisher={IEEE}
+}
+
+@inproceedings{Bailey:ICRA11,
+  title={Decentralised cooperative localisation for heterogeneous teams of mobile robots},
+  author={T. Bailey and M. Bryson and H. Mu and J. Vial and L. McCalman and H. Durrant-Whyte},
+  booktitle=IEEE_C_ICRA,
+  pages={2859--2865},
+  year={2011},
+  organization={IEEE},
+  notes={Centralized fusion, uses marginalization of local info to reduce communications}
+}
+
+@article{Leung:TRO10,
+  title={Decentralized localization of sparsely-communicating robot networks: A centralized-equivalent approach},
+  author={K. Y. K. Leung and T. D. Barfoot and H. H. T. Liu},
+  journal=IEEE_J_RA,
+  volume={26},
+  number={1},
+  pages={62--77},
+  year={2010},
+  publisher={IEEE},
+  notes={Analyzes information flow, and determines "checkpoints", that is, minimum state information that needs to be kept in order to use Markov property}
+}
+
+@article{Huang:AR11,
+  title={Observability-based consistent EKF estimators for multi-robot cooperative localization},
+  author={G. P. Huang and N. Trawny and A. I. Mourikis and S. I. Roumeliotis},
+  journal=AR,
+  volume={30},
+  number={1},
+  pages={99--122},
+  year={2011},
+  publisher={Springer},
+  notes={Does not propose distributed algorithms, but looks at how to fix rank of linearization}
+}
+
+@inproceedings{Howard:IROS02,
+  title={Localization for mobile robot teams using maximum likelihood estimation},
+  author={A. Howard and M. J. Matark and G. S. Sukhatme},
+  booktitle=IEEE_C_IROS,
+  volume=1,
+  pages={434--439},
+  year=2002,
+  notes={Centralized, maximum-likelihood, optimization-based approach with discarding of information (does not use Markov property)}
+}
+
+@inproceedings{Nerurkar:ICRA09,
+  title={Distributed maximum a posteriori estimation for multi-robot cooperative localization},
+  author={E. D. Nerurkar and S. I. Roumeliotis and A. Martinelli},
+  booktitle=IEEE_C_ICRA,
+  pages={1402--1409},
+  year={2009},
+  annote={Uses distributed conjugate gradient, marginalization and slinding windows, stores all cross-terms across the network}
+}
+
+@article{Fox:AR00,
+  title={A probabilistic approach to collaborative multi-robot localization},
+  author={D. Fox and W. Burgard and H. Kruppa and S. Thrun},
+  journal=AR,
+  volume={8},
+  number={3},
+  pages={325--344},
+  year={2000},
+  publisher={Springer},
+  notes={Uses particle filters, factorized distribution}
+}
+
+@inproceedings{Prorok:ICRA12,
+  title={Low-cost collaborative localization for large-scale multi-robot systems},
+  author={A. Prorok and A. Bahr and A. Martinoli},
+  booktitle=IEEE_C_ICRA,
+  pages={4236--4241},
+  year={2012},
+  notes={Similar to Fox:AR00 (sampling based), but does clustering of particles}
+}
+
+@inproceedings{Borra:ECC13,
+  title={Asynchronous distributed calibration of camera networks},
+  author={D. Borra and F. Fagnani},
+  booktitle=ECC,
+  pages={754--759},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{Carron:TCNS14,
+  title={An asynchronous consensus-based algorithm for estimation from noisy relative measurements},
+  author={A. Carron and M. Todescato and R. Carli and L. Schenato},
+  journal=IEEE_J_CNS,
+  volume={1},
+  number={3},
+  pages={283--295},
+  year={2014},
+  publisher={IEEE},
+  notes={static, transforms problem into consensus, probabilistic async updates, bounds on convergence rate}
+}
+
+@article{Knuth:ROBOTICA13,
+  title={Distributed collaborative {3D} pose estimation of robots from heterogeneous relative measurements: an optimization on manifold approach},
+  author={J. Knuth and P. Barooah},
+  journal={Robotica},
+  pages={1--29},
+  year={2013},
+  publisher={Cambridge University Press},
+  notes={Max Likelihood approach, uses distributed gradient descent on manifolds}
+}
+
+@article{tian2021distributed,
+  title={Distributed certifiably correct pose-graph optimization},
+  author={Tian, Yulun and Khosoussi, Kasra and Rosen, David M and How, Jonathan P},
+  journal={IEEE Transactions on Robotics},
+  volume={37},
+  number={6},
+  pages={2137--2156},
+  year={2021},
+  annote={Riemannian block coordinate descent (RBCD) for distributed Riemmannian staircase, distributed solution verification and saddle escape methods }
+}
+
+@article{tian2020asynchronous,
+  title={Asynchronous and parallel distributed pose graph optimization},
+  author={Tian, Yulun and Koppel, Alec and Bedi, Amrit Singh and How, Jonathan P},
+  journal={IEEE Robotics and Automation Letters},
+  volume={5},
+  number={4},
+  pages={5819--5826},
+  year={2020},
+  publisher={IEEE}
+}
+
+@article{Oh:TAC14,
+  title={Formation control and network localization via orientation alignment},
+  author={K.-K. Oh and H.-S. Ahn},
+  journal=IEEE_J_AC,
+  volume={59},
+  number={2},
+  pages={540--545},
+  year={2014},
+  publisher={IEEE}
+}
+
+@article{ren2007distributed,
+  title={Distributed multi-vehicle coordinated control via local information exchange},
+  author={Ren, Wei and Atkins, Ella},
+  journal={International Journal of Robust and Nonlinear Control},
+  volume={17},
+  number={10-11},
+  pages={1002--1033},
+  year={2007},
+  publisher={Wiley Online Library}
+}
+
+
+@inproceedings{Trawny:ICRA10,
+  title={On the global optimum of planar, range-based robot-to-robot relative pose estimation},
+  author={N. Trawny and S. Roumeliotis},
+  booktitle=IEEE_C_ICRA,
+  pages={3200--3206},
+  year={2010},
+}
+
+@inproceedings{Zhou:IROS10,
+  title={Determining the robot-to-robot 3D relative pose using combinations of range and bearing measurements: 14 minimal problems and closed-form solutions to three of them},
+  author={X. S. Zhou and S. Roumeliotis},
+  booktitle=IEEE_C_IROS,
+  pages={2983--2990},
+  year={2010},
+}
+
+@inproceedings{Zhou:ICRA11,
+  title={Determining the robot-to-robot 3D relative pose using combinations of range and bearing measurements (Part II)},
+  author={X. S. Zhou and S. Roumeliotis},
+  booktitle=IEEE_C_ICRA,
+  pages={4736--4743},
+  year={2011},
+  organization={IEEE}
+}
+
+@article{Cortes:TAC09,
+  title={Distributed Kriged Kalman filter for spatial estimation},
+  author={Cort{\'e}s, Jorge},
+  journal=IEEE_J_AC,
+  volume={54},
+  number={12},
+  pages={2816--2827},
+  year={2009},
+  publisher={IEEE}
+}
+
+@Article{Barooah:CS07,
+  author={Barooah, P. and Hespanha, J.},
+	title={Estimation on Graphs from Relative Measurements},
+	volume={27},
+	number={4},
+	year={2007},
+	journal=IEEE_M_CS,
+}
+
+@article{russell2011optimal,
+  title={Optimal estimation on the graph cycle space},
+  author={Russell, W. Joshua and Klein, Daniel J and Hespanha, Joao P},
+  journal=IEEE_J_SP,
+  volume={59},
+  number={6},
+  pages={2834--2846},
+  year={2011},
+}
+
+@article{aragues2012distributed,
+  title={Distributed centroid estimation from noisy relative measurements},
+  author={Aragues, Rosario and Carlone, Luca and Sagues, Carlos and Calafiore, Giuseppe},
+  journal={Systems \& Control Letters},
+  volume={61},
+  number={7},
+  pages={773--779},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@PhDThesis{Barooah:Thesis07,
+  author = {P. Barooah},
+	title = {Estimation and Control with Relative Measurements: Algorithms and Scaling Laws},
+	year = {2007},
+	school = {University of California Santa Barbara}
+}
+
+
+@INPROCEEDINGS{Diao:ASCC13,
+author={Y. Diao and Z. Lin and M. Fu and H. Zhang},
+booktitle=ASCC,
+title={A new distributed localization method for sensor networks},
+year={2013},
+pages={1--6},
+notes={Distance-based}
+}
+
+@inproceedings{Martinelli:ICRA05,
+  title={Multi-robot localization using relative observations},
+  author={A. Martinelli and F. Pont and R. Siegwart},
+  booktitle=IEEE_C_ICRA,
+  pages={2797--2802},
+  year={2005},
+  notes={Centralized EKF. Points out observability problem, fixed with assumption of one node with absolute positioning}
+}
+
+@inproceedings{Piovan:CDC08,
+	Author = {G. Piovan and I. Shames and B. Fidan and F. Bullo and B. Anderson},
+ 	Booktitle = IEEE_C_CDC,
+	Pages = {2326--2331},
+	Title = {On frame and orientation localization for relative sensing networks},
+	Year = 2008}
+
+@article{Aspnes:TraMC06,
+	Author = {J. Aspnes and W. Whiteley and Y.~R. Yang},
+	Journal = IEEE_J_MC,
+	Number = 12,
+	Pages = {1663--1678},
+	Publisher = {IEEE},
+	Title = {A Theory of Network Localization},
+	Volume = 5,
+	Year = 2006,
+}
+
+@article{Khan:TraSP09,
+	Author = {U.A. Khan and S. Kar and J.M.F. Moura},
+	Journal = IEEE_J_SP,
+	Number = {5},
+	Pages = {2000--2016},
+	Title = {Distributed Sensor Localization in Random Environments Using Minimal Number of Anchor Nodes},
+	Volume = {57},
+	Year = {2009},
+}
+
+@inproceedings{Barton:BROADNETS06,
+	Author = {A. Barton-Sweeney and D. Lymberopoulos and A. Savvides},
+	Booktitle = {International Conference on Broadband Communications, Networks and Systems},
+	Pages = {1--10},
+	Title = {Sensor Localization and Camera Calibration in Distributed Camera Sensor Networks},
+	Year = {2006},
+}
+
+@article{Shirmohammadi:TOSN10,
+	Author = {B. Shirmohammadi and C.J. Taylor},
+	Journal = {{ACM} Transactions on Sensor Networks},
+	Title = {Self Localizing Smart Camera Networks},
+	Year = {2010}}
+
+@inproceedings{Funiak:IPSN06,
+	Author = {S. Funiak and C. Guestrin and M. Paskin and R. Sukthankar},
+	Booktitle = {International Conference on Information Processing in Sensor Networks},
+	Pages = {34--42},
+	Title = {Distributed localization of networked cameras},
+	Year = {2006},
+}
+
+@article{Devarajan:Proc08,
+	Author = {D. Devarajan and Z. Cheng and R. Radke},
+	Journal = IEEE_J_PROC,
+	Number = {10},
+	Pages = {1625 -1639},
+	Title = {Calibrating Distributed Camera Networks},
+	Volume = {96},
+	Year = {2008},
+}
+
+@article{Devarajan:ASP07,
+	Author = {D. Devarajan and R. Radke},
+	Journal = EURASIP_ASP,
+	Pages = {221--221},
+	Publisher = {Hindawi Publishing Corp.},
+	Title = {Calibrating distributed camera networks using belief propagation},
+	Year = 2007,
+}
+
+@article{Shames:TAC13,
+  title={Analysis of noisy bearing-only network localization},
+  author={I. Shames and A. N. Bishop  and B. D. O. Anderson},
+  journal=IEEE_J_AC,
+  volume={58},
+  number={1},
+  pages={247--252},
+  year={2013},
+  publisher={IEEE}
+}
+
+@article{Luft2016recursive,
+author = {Luft, Lukas and Schubert, Tobias and Roumeliotis, Stergios I and Burgard, Wolfram},
+journal = RSS,
+title = {Recursive Decentralized Collaborative Localization for Sparsely Communicating Robots},
+year = {2016}
+}
+
+@article{Kurazume:AR00,
+  title={An experimental study of a cooperative positioning system},
+  author={R. Kurazume and S. Hirose},
+  journal=AR,
+  volume={8},
+  number={1},
+  pages={43--52},
+  year={2000},
+  publisher={Springer}
+}
+
+@article{Roumeliotis:TRO02,
+  title={Distributed multirobot localization},
+  author={S. Roumeliotis and G. A. Bekey},
+  journal=IEEE_J_RA,
+  volume={18},
+  number={5},
+  pages={781--795},
+  year={2002},
+  publisher={IEEE}
+}
+
+@article{Roumeliotis:AR04,
+  title={Propagation of uncertainty in cooperative multirobot localization: Analysis and experimental results},
+  author={S. I. Roumeliotis and I. M. Rekleitis},
+  journal=AR,
+  volume={17},
+  number={1},
+  pages={41--54},
+  year={2004},
+  publisher={Springer},
+  notes={Recognizes problem in observability, essentially centralized global covariance update}
+}
+
+@inproceedings{Nerurkar:IROS10,
+  title={Asynchronous multi-centralized cooperative localization},
+  author={E. D. Nerurkar and S. Roumeliotis},
+  booktitle=IEEE_C_IROS,
+  pages={4352--4359},
+  year={2010},
+}
+
+@inproceedings{Howard:ICRA03,
+  title={Putting the'i'in'team': an ego-centric approach to cooperative localization},
+  author={A. Howard and M. J. Matari{\'c} and G. S. Sukhatme},
+  booktitle=IEEE_C_ICRA,
+  volume={1},
+  pages={868--874},
+  year={2003},
+}
+
+@article{wanasinghe2015distributed,
+  title={Distributed leader-assistive localization method for a heterogeneous multirobotic system},
+  author={Wanasinghe, Thumeera R. and Mann, George K. I. and Gosine, Raymond G.},
+  journal=IEEE_J_ASE,
+  volume={12},
+  number={3},
+  pages={795--809},
+  year={2015},
+  publisher={IEEE}
+}
+
+@inproceedings{panzieri2006multirobot,
+  title={Multirobot localisation using interlaced extended Kalman filter},
+  author={Panzieri, Stefano and Pascucci, Federica and Setola, Roberto},
+  booktitle=IEEE_C_IROS,
+  pages={2816--2821},
+  year={2006},
+}
+
+@inproceedings{kurazume1994cooperative,
+  title={Cooperative positioning with multiple robots},
+  author={Kurazume, Ryo and Nagata, Shigemi and Hirose, Shigeo},
+  booktitle=IEEE_C_ICRA,
+  pages={1250--1257},
+  year={1994},
+}
+
+@inproceedings{carrillo2013decentralized,
+  title={Decentralized multi-robot cooperative localization using covariance intersection},
+  author={Carrillo-Arce, Luis C and Nerurkar, Esha D and Gordillo, Jos{\'e} L and Roumeliotis, Stergios I},
+  booktitle=IEEE_C_IROS,
+  pages={1412--1417},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{li2013cooperative,
+  title={Cooperative multi-vehicle localization using split covariance intersection filter},
+  author={Li, Hao and Nashashibi, Fawzi},
+  journal=IEEE_M_ITS,
+  volume={5},
+  number={2},
+  pages={33--44},
+  year={2013},
+  publisher={IEEE}
+}
+
+@inproceedings{wanasinghe2014decentralized,
+  title={Decentralized cooperative localization for heterogeneous multi-robot system using split covariance intersection filter},
+  author={Wanasinghe, Thumeera R and Mann, George KI and Gosine, Raymond G},
+  booktitle={Canadian Conference on Computer and Robot Vision},
+  pages={167--174},
+  year={2014},
+  organization={IEEE}
+}
+
+@inproceedings{spica2016active,
+  title={Active decentralized scale estimation for bearing-based localization},
+  author={Spica, Riccardo and Robuffo Giordano, Paolo},
+  booktitle=IEEE_C_IROS,
+  pages={5084--5091},
+  year={2016},
+  organization={IEEE}
+}
+
+% Ultra Wide Band (UWB)
+
+@article{prorok2014accurate,
+  title={Accurate indoor localization with ultra-wideband using spatial models and collaboration},
+  author={Prorok, Amanda and Martinoli, Alcherio},
+  journal={The International Journal of Robotics Research},
+  volume={33},
+  number={4},
+  pages={547--568},
+  year={2014},
+  publisher={SAGE Publications Sage UK: London, England}
+}
+
+@inproceedings{calafiore2010distributed,
+  title={Distributed optimization techniques for range localization in networked systems},
+  author={Calafiore, Giuseppe C and Carlone, Luca and Wei, Mingzhu},
+  booktitle=IEEE_C_CDC,
+  pages={2221--2226},
+  year={2010},
+  annote={Uses Gauss-Newton on distances, uses a special rule for computing the step size without line search}
+}

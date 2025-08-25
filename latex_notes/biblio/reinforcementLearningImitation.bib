@@ -1,0 +1,350 @@
+
+@article{hussein2017imitation,
+  title={Imitation learning: A survey of learning methods},
+  author={Hussein, Ahmed and Gaber, Mohamed Medhat and Elyan, Eyad and Jayne, Chrisina},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={50},
+  number={2},
+  pages={1--35},
+  year={2017},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{argall2009survey,
+  title={A survey of robot learning from demonstration},
+  author={Argall, Brenna D and Chernova, Sonia and Veloso, Manuela and Browning, Brett},
+  journal={Robotics and autonomous systems},
+  volume={57},
+  number={5},
+  pages={469--483},
+  year={2009},
+  publisher={Elsevier}
+}
+
+@article{osa2018algorithmic,
+  title={An algorithmic perspective on imitation learning},
+  author={Osa, Takayuki and Pajarinen, Joni and Neumann, Gerhard and Bagnell, J Andrew and Abbeel, Pieter and Peters, Jan and others},
+  journal={Foundations and Trends in Robotics},
+  volume={7},
+  number={1-2},
+  pages={1--179},
+  year={2018},
+  publisher={Now Publishers, Inc.},
+  annote={replicating desired behavior = behavioral cloning,  learning the hidden objectives of the desired behavior = inverse optimal control or inverse reinforcement learning}
+}
+
+% Shadowing
+
+@article{demiris2002f,
+  title={Imitation as a dual-route process featuring predictive and learning componentsd},
+  author={Demiris, John and Hayes, Gillian},
+  journal={Imitation in animals and artifacts},
+  volume={327},
+  year={2002}
+}
+
+@inproceedings{nicolescu2001experience,
+  title={Experience-based representation construction: learning from human and robot teachers},
+  author={Nicolescu, Monica N and Mataric, Maja J},
+  booktitle=IEEE_C_IROS,
+  volume={2},
+  pages={740--745},
+  year={2001},
+  organization={IEEE}
+}
+
+@inproceedings{nehmzow2007robot,
+  title={Robot programming by demonstration through system identification},
+  author={Nehmzow, Ulrich and Akanyeti, Otar and Weinrich, Christoph and Kyriacou, Theocharis and Billings, Stephen A},
+  booktitle=IEEE_C_IROS,
+  pages={801--806},
+  year={2007},
+  organization={IEEE}
+}
+
+@article{ogino2006interaction,
+  title={Interaction rule learning with a human partner based on an imitation faculty with a simple visuo-motor mapping},
+  author={Ogino, Masaki and Toichi, Hideki and Yoshikawa, Yuichiro and Asada, Minoru},
+  journal={Robotics and Autonomous Systems},
+  volume={54},
+  number={5},
+  pages={414--418},
+  year={2006},
+  publisher={Elsevier}
+}
+
+% DNN-based
+
+@inproceedings{codevilla2018end,
+  title={End-to-end driving via conditional imitation learning},
+  author={Codevilla, Felipe and M{\"u}ller, Matthias and L{\'o}pez, Antonio and Koltun, Vladlen and Dosovitskiy, Alexey},
+  booktitle=IEEE_C_ICRA,
+  pages={4693--4700},
+  year={2018},
+  organization={IEEE},
+  annote={Uses intention during training (e.g., turning signals)}
+}
+
+
+@inproceedings{zhao2023learninwg,
+  title={Learning fine-grained bimanual manipulation with low-cost hardware},
+  author={Zhao, Tony Z and Kumar, Vikash and Levine, Sergey and Finn, Chelsea},
+  booktitle=RSS,
+  year={2023},
+  annote={Introduces Action Chunking with Transformers (ACT). Notes that existing imitation learning algorithms perform poorly on fine-grained tasks that require
+high-frequency control and closed-loop feedback. Predicts pose of human, which is then pushed through PID controller. Adds smoothing between overlapping chunks. Based on Conditional Variational AutoEncoder (CVAE). Requires tweaking regularization to make it work. Implemented using transformer.}
+}
+
+@inproceedings{chi2023diffusion,
+  title={Diffusion policy: Visuomotor policy learning via action diffusion},
+  author={Chi, Cheng and Feng, Siyuan and Du, Yilun and Xu, Zhenjia and Cousineau, Eric and Burchfiel, Benjamin and Song, Shuran},
+  booktitle=RSS,
+  year={2023},
+  annote={Prediction uses receding horizon control, where predicts $T_p$ steps but executes only $T_a$. Conditioned on but does not predict observations. Noise network predicts $\grad\log p(a|o)$ which allows to avoid estimating the partition function $Z$. Can express multi-horizon.}
+}
+
+@article{pari2021surprising,
+  title={The surprising effectiveness of representation learning for visual imitation},
+  author={Pari, Jyothish and Shafiullah, Nur Muhammad and Arunachalam, Sridhar Pandian and Pinto, Lerrel},
+  journal={arXiv preprint arXiv:2112.01511},
+  year={2021},
+  annote={Idea: use representation learning to extract features, then actions are given by locally weighted regression of nearest-neighbor representations of demos}
+}
+
+@inproceedings{florence2022implicit,
+  title={Implicit behavioral cloning},
+  author={Florence, Pete and Lynch, Corey and Zeng, Andy and Ramirez, Oscar A and Wahid, Ayzaan and Downs, Laura and Wong, Adrian and Lee, Johnny and Mordatch, Igor and Tompson, Jonathan},
+  booktitle=CORL,
+  pages={158--168},
+  year={2022},
+  organization={PMLR},
+  annote={Propose implicit models, i.e., $a=\argmin E(o,a)$ instead of $a=F(o)$. For training, minimizes negative log-likelihood of observations given inputs, and requires negative samples to estimate partition function. Inference require energy minimization (e.g., gradient  descent). Show better extrapolation, handling of discontinuities.}
+}
+
+@article{shafiullah2022behavior,
+  title={Behavior Transformers: Cloning $k$ modes with one stone},
+  author={Shafiullah, Nur Muhammad and Cui, Zichen and Altanzaya, Ariuntuya Arty and Pinto, Lerrel},
+  journal=NIPS,
+  volume={35},
+  pages={22955--22968},
+  year={2022},
+  annote={Discretizes actions as action center (k-means-based encoder) + residual action. Use history via transformer architecture}
+}
+
+@article{hausman2017multi,
+  title={Multi-modal imitation learning from unstructured demonstrations using generative adversarial nets},
+  author={Hausman, Karol and Chebotar, Yevgen and Schaal, Stefan and Sukhatme, Gaurav and Lim, Joseph J},
+  journal=NIPS,
+  volume={30},
+  year={2017},
+  annote={Segmentation+IRL. GAN architecture. Introduce "intention" cluster variable. Promote policies with high entropy if no intention is provided, and small entropy if it is provided.}
+}
+
+@inproceedings{dasari2021transformers,
+  title={Transformers for one-shot visual imitation},
+  author={Dasari, Sudeep and Gupta, Abhinav},
+  booktitle=CORL,
+  pages={2071--2084},
+  year={2021},
+  organization={PMLR},
+  annote={use transformers to pick details from demonstrations. add inverse kinematics network to enable self-supervision.}
+}
+
+@inproceedings{lynch2020learning,
+  title={Learning latent plans from play},
+  author={Lynch, Corey and Khansari, Mohi and Xiao, Ted and Kumar, Vikash and Tompson, Jonathan and Levine, Sergey and Sermanet, Pierre},
+  booktitle=CORL,
+  pages={1113--1132},
+  year={2020},
+  organization={PMLR},
+  annote={Main idea is that play contains lots of short start-goal-action examples that are cheap to collect and cover a large amount of the state-action space. We can therefore learn policies by merging segments from play as supervision.}
+}
+
+@inproceedings{mandlekar2022matters,
+  title={What Matters in Learning from Offline Human Demonstrations for Robot Manipulation},
+  author={Mandlekar, Ajay and Xu, Danfei and Wong, Josiah and Nasiriany, Soroush and Wang, Chen and Kulkarni, Rohun and Fei-Fei, Li and Savarese, Silvio and Zhu, Yuke and Mart{\'\i}n-Mart{\'\i}n, Roberto},
+  booktitle=CORL,
+  pages={1678--1690},
+  year={2022},
+  organization={PMLR},
+  annote={Challenges: history-dependent (non-Markovian), variance in demonstration quality, size of dataset (coverage), difference between task success and training metric, sensitivity to hyperparameters}
+}
+
+@inproceedings{jang2022bc,
+  title={Bc-z: Zero-shot task generalization with robotic imitation learning},
+  author={Jang, Eric and Irpan, Alex and Khansari, Mohi and Kappler, Daniel and Ebert, Frederik and Lynch, Corey and Levine, Sergey and Finn, Chelsea},
+  booktitle=CORL,
+  pages={991--1002},
+  year={2022},
+  organization={PMLR},
+  annote={Include human interventions to train. FILM Embedding from language, demo video. Use embedding to condition observations. Many design choices}
+}
+
+@article{brohan2022rt,
+  title={{RT}-1: Robotics transformer for real-world control at scale},
+  author={Brohan, Anthony and Brown, Noah and Carbajal, Justice and Chebotar, Yevgen and Dabis, Joseph and Finn, Chelsea and Gopalakrishnan, Keerthana and Hausman, Karol and Herzog, Alex and Hsu, Jasmine and others},
+  journal={arXiv preprint arXiv:2212.06817},
+  year={2022},
+}
+
+@inproceedings{perez2018film,
+  title={{FiLM}: Visual reasoning with a general conditioning layer},
+  author={Perez, Ethan and Strub, Florian and De Vries, Harm and Dumoulin, Vincent and Courville, Aaron},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={32},
+  number={1},
+  year={2018},
+  annote={Feature-wise Linear Modulation. Given a feature $F$ (e.g., from an encoder on an image), and a modulating side-input $x$ (e.g., a recurrent network on words), compute $\gamma$ and $\beta$ from $x$, then apply them to transfor $F$ as $\gamma F+\beta$}
+}
+
+% Inverse reinforcement learning with active learning
+@article{daniel2015active,
+  title={Active reward learning with a novel acquisition function},
+  author={Daniel, Christian and Kroemer, Oliver and Viering, Malte and Metz, Jan and Peters, Jan},
+  journal={Autonomous Robots},
+  volume={39},
+  pages={389--405},
+  year={2015},
+  publisher={Springer},
+  annote={reward model using a Gaussian process, use Bayesian learning to query human for ratings.}
+}
+
+@inproceedings{judah2012active,
+  title={Active imitation learning via reduction to iid active learning},
+  author={Judah, Kshitij and Fern, Alan Paul and Dietterich, Thomas Glenn},
+  booktitle={AAAI Fall Symposium Series},
+  year={2012},
+  annote={Active Imitation Learning by reformulating problem as iid active learning (cheap random sampling, minimize labeling requests).}
+}
+
+@article{ab2020inverse,
+  title={From inverse optimal control to inverse reinforcement learning: A historical review},
+  author={Ab Azar, Nematollah and Shahmansoorian, Aref and Davoudi, Mohsen},
+  journal={Annual Reviews in Control},
+  volume={50},
+  pages={119--138},
+  year={2020},
+  publisher={Elsevier}
+}
+
+@inproceedings{dima2005active,
+  title={Active Learning For Outdoor Obstacle Detection.},
+  author={Dima, Cristian and Hebert, Martial},
+  booktitle=RSS,
+  pages={9--16},
+  year={2005},
+  annote={Uses committees, bagging, subsampling, and combinations thereof}
+}
+
+% Adversarial
+@article{ho2016generative,
+  title={Generative adversarial imitation learning},
+  author={Ho, Jonathan and Ermon, Stefano},
+  journal=NIPS,
+  volume={29},
+  year={2016},
+  annote={Instead of directly learning a reward function, GAIL relies on the discriminator to guide into imitating the expert policy. Includes causal entropy as regularizer for policy. Notes that IRL followed by RL is like finding a saddle point. IRL can be cast as a dual occupancy measure matching (?).}
+}
+
+@article{li2017infogail,
+  title={{InfoGAIL}: Interpretable imitation learning from visual demonstrations},
+  author={Li, Yunzhu and Song, Jiaming and Ermon, Stefano},
+  journal=NIPS,
+  volume={30},
+  year={2017},
+  annote={raw visual inputs. Can learn semantically meaningful latent representation. Latent representation is a mixture of expert, uses discrete variable $c$ for cluster. Idea is to maximize information in $P(c|\tau)$, where $\tau$ is the r.v. of trajectories. However, it is hard to evaluate, instead maximize lower bound $Q$.}
+}
+
+% DMPs-based approaches
+@inproceedings{ijspeert2002movement,
+  title={Movement imitation with nonlinear dynamical systems in humanoid robots},
+  author={Ijspeert, Auke Jan and Nakanishi, Jun and Schaal, Stefan},
+  booktitle=IEEE_C_ICRA,
+  volume={2},
+  pages={1398--1403},
+  year={2002},
+  organization={IEEE}
+}
+
+@inproceedings{yang2022learning,
+  title={Learning periodic tasks from human demonstrations},
+  author={Yang, Jingyun and Zhang, Junwu and Settle, Connor and Rai, Akshara and Antonova, Rika and Bohg, Jeannette},
+  booktitle=IEEE_C_ICRA,
+  pages={8658--8665},
+  year={2022},
+  annote={Uses DMPs with periodic basis to learn periodic tasks}
+}
+
+@inproceedings{pastor2009learning,
+  title={Learning and generalization of motor skills by learning from demonstration},
+  author={Pastor, Peter and Hoffmann, Heiko and Asfour, Tamim and Schaal, Stefan},
+  booktitle=IEEE_C_ICRA,
+  pages={763--768},
+  year={2009},
+  organization={IEEE},
+  annote={Modify DMP to avoid singularities with demonstrations where start and goal are the same. Library.}
+}
+
+
+@article{ijspeert2013dynamical,
+  title={Dynamical movement primitives: learning attractor models for motor behaviors},
+  author={Ijspeert, Auke Jan and Nakanishi, Jun and Hoffmann, Heiko and Pastor, Peter and Schaal, Stefan},
+  journal={Neural computation},
+  volume={25},
+  number={2},
+  pages={328--373},
+  year={2013},
+  annote={Tutorial on DMPs, mentions equivariance properties.}
+}
+
+@inproceedings{kober2009learning,
+  title={Learning motor primitives for robotics},
+  author={Kober, Jens and Peters, Jan},
+  booktitle=IEEE_C_ICRA,
+  pages={2112--2118},
+  year={2009},
+  organization={IEEE},
+  annote={DMP with Reinforcement learning to optimize the parameters. Use structured exploration (PoWER). How is the reward defined?}
+}
+
+% Probabilistic DMPs
+@article{paraschos2018using,
+  title={Using probabilistic movement primitives in robotics},
+  author={Paraschos, Alexandros and Daniel, Christian and Peters, Jan and Neumann, Gerhard},
+  journal={Autonomous Robots},
+  volume={42},
+  pages={529--551},
+  year={2018},
+  publisher={Springer},
+  annote={ProMP. Mean trajectory using weights on time-varying functions plus (Gaussian) noise. Then distribution on weigths. Trajectory distribution given by conditioning out the weights. Does not capture temporal correlation of noise.}
+}
+
+% DMPs + Neural networks
+
+@inproceedings{bahl2021hierarchical,
+  title={Hierarchical neural dynamic policies},
+  author={Bahl, Shikhar and Gupta, Abhinav and Pathak, Deepak},
+  booktitle=RSS,
+  year={2021},
+  annote={Learns a global Neural DMP (NDP) to imitate local NDPs that are trained on specific parts of the workspace.}
+}
+
+@article{bahl2020neural,
+  title={Neural dynamic policies for end-to-end sensorimotor learning},
+  author={Bahl, Shikhar and Mukadam, Mustafa and Gupta, Abhinav and Pathak, Deepak},
+  journal=NIPS,
+  volume={33},
+  pages={5058--5069},
+  year={2020},
+  annote={Predicts weights $w$ and goal $g$ for DMP using a neural network from observations of the state}
+}
+
+@inproceedings{gams2018deep,
+  title={Deep encoder-decoder networks for mapping raw images to dynamic movement primitives},
+  author={Gams, Andrej and Ude, Ale{\v{s}} and Morimoto, Jun and others},
+  booktitle=IEEE_C_ICRA,
+  pages={5863--5868},
+  year={2018},
+  organization={IEEE},
+  cite={Similar to bahl2020neural, NN predicts parameters of DMP. Uses differences of trajectories to compute error.}
+}

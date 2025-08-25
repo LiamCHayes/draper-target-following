@@ -1,0 +1,33 @@
+% Package to get PDF page numbers via \theCurrentPage
+\usepackage{pageslts}
+\pagenumbering{arabic}
+
+% Macro to reset a counter to zero if it is defined
+% Source: adapted from https://tex.stackexchange.com/questions/155776/check-if-counter-exists
+\makeatletter
+\newcommand*\resetcounter[1]{%
+\ifcsname c@#1\endcsname % Check that counter exists
+\setcounter{#1}{0}
+\fi
+}
+\makeatother
+
+% Macro to include file while writing to log file the splitting markers
+\newenvironment{markforsplit}[1]{%
+\def\splitmarkername{#1}
+\typeout{Split marker [#1] [start] [\theCurrentPage]}  \setcounter{page}{1}%
+\resetcounter{figure}
+\resetcounter{table}
+}{%
+\clearpage%
+\typeout{Split marker [\splitmarkername] [end] [\theCurrentPage]}%
+}
+\newcommand{\includeforsplit}[1]{%
+\begin{markforsplit}{#1}%
+\include{#1}%
+\end{markforsplit}%
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

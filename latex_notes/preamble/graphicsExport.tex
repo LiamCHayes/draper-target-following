@@ -1,0 +1,36 @@
+% activate externalization of figures
+\usetikzlibrary{external}
+\usepackage{cprotect}
+
+\tikzexternalize 
+
+%command to insert a Beamer frame from a sketch and externalize with the same name 
+\newcommand{\insertsketchframe}[2][.]{\section{$\mathrm{#2}$}%
+\tikzsetnextfilename{#2}%
+  \begin{tikzpicture}[scale=0.7]%
+    \input{#1/sketch/#2}%
+  \end{tikzpicture}%
+\endpgfgraphicnamed%
+}
+
+%command to insert a Beamer frame from a tikz drawing and externalize with the same name 
+\newcommand{\inserttikzframe}[2][.]{\section{$\mathrm{#2}$}%
+\tikzsetnextfilename{#2}%
+\input{#1/tikz/#2}%
+\endpgfgraphicnamed%
+}
+
+%command to insert an equation and externalize
+\newcommand{\insertequationframe}[2]{\section{$\mathrm{#1}$}%
+\tikzsetnextfilename{#1}%
+\begin{tikzpicture}
+  \node{$\begin{aligned}
+          #2  
+        \end{aligned}$};
+\end{tikzpicture}
+\endpgfgraphicnamed%
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

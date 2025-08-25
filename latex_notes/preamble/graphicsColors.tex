@@ -1,0 +1,19 @@
+
+\definecolorset{RGB}{lyft}{}{Red,194,39,36;Sunset,202,53,33;Orange,205,68,20;Amber,200,117,42;Yellow,242,169,52;Citron,186,188,44;Lime,112,159,33;Green,56,139,31;Mint,45,118,56;Teal,52,133,135;Cyan,60,132,202;Blue,55,94,248;Indigo,64,13,247;Purple,115,42,248;Pink,176,25,145;Rose,176,32,75}
+
+% Palette from https://codepen.io/devi8/pen/nJMGZR
+\definecolorset{HTML}{h}{}{grapefruit,ED5565;bittersweet,FC6E51;sunflower,FFCE54;grass,A0D468;mint,48CFAD;aqua,4FC1E9;bluejeans,5D9CEC;lavender,AC92EC;pinkrose,EC87C0;lightgray,F5F7FA;mediumgray,CCD1D9;darkgray,656D78}
+
+\newcommand{\hcolorswab}{
+  \begin{tikzpicture}
+    \foreach \n[count=\cnt] in {hgrapefruit,hbittersweet,hsunflower,hgrass,hmint,haqua,hbluejeans,hlavender,hpinkrose,hlightgray,hmediumgray,hdarkgray}
+    {
+      \node[minimum height=1cm,fill=\n,font=\tiny\sffamily,minimum width=3cm] at (0,-\cnt) {\n};
+    }
+  \end{tikzpicture}
+}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

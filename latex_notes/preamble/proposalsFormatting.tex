@@ -1,0 +1,119 @@
+% For including the notes.org file
+\input{preamble/formattingCode}
+
+
+% % Customize labels (see section 8.1.2 of cleveref's manual)
+\crefname{figure}{Fig.}{Figs.}
+\Crefname{figure}{Fig.}{Figs.}
+%\crefname{table}{Table}{Tables}
+%\Crefname{table}{Table}{Tables}
+%\crefname{thrust}{Thrust}{Thrusts}
+%\Crefname{thrust}{Thrust}{Thrusts}
+\crefname{section}{\S}{\S}
+\Crefname{section}{\S}{\S}
+\crefname{property}{property}{properties}
+\Crefname{property}{Property}{Properties}
+
+\paragraphswithstop
+
+% Reduce line skip before \paragraph
+\titlespacing{\paragraph}{%
+  0pt}{%              left margin
+  0\baselineskip}{%   space before (vertical)
+  0.5em}%             space after (horizontal)
+
+
+% Change name of section for references
+\renewcommand{\refname}{References Cited}
+
+%Redefine \maketitle command
+\makeatletter
+\renewcommand{\maketitle}{\begin{center}\Large\textbf\@title
+  \end{center}
+  % Add author only if not empty (in the sense of producing output)
+\setbox0=\hbox{\@author\unskip}\ifdim\wd0=0pt
+\else
+\begin{center}
+  \@author
+\end{center}
+\fi%
+}
+\makeatother
+
+%theorem-like environment for stating thrusts
+%we define a second counter that is presented in Alphabetic form
+\newtheorem{innerthrust}{Thrust}
+\newcounter{thrustnumber}
+\newenvironment{thrust}[1][\Alph{thrustnumber}]
+  {\stepcounter{thrustnumber}\renewcommand\theinnerthrust{#1}\innerthrust}
+  {\endinnerthrust}
+
+%theorem-like environment for stating hypotheses
+%we define a second counter that is linked with the section,
+% and presented in Roman form
+\newtheorem{innerhypothesis}{Hypothesis}
+\newcounter{hypothesisnumber}
+\newenvironment{hypothesis}[1][\Roman{hypothesisnumber}]
+  {\stepcounter{hypothesisnumber}\renewcommand\theinnerhypothesis{#1}\innerhypothesis}
+  {\endinnerhypothesis}
+
+
+%macros for paragraphs in thrust description
+\newcommand{\thrustmerits}{\paragraph{Intellectual merits of
+    this thrust}}
+\WithSuffix\newcommand\thrustmerits*[1][\Alph{thrustnumber}]{\paragraph{Intellectual merits of thrust~#1}}
+
+\newcommand{\thruststateoftheart}{\paragraph{State of
+    the art and open problems}}
+\WithSuffix\newcommand\thruststateoftheart*[1][\Alph{thrustnumber}]{\paragraph{Relation of thrust~#1 with the state of the art}}
+
+\newcommand{\thrustbackground}[1]{\paragraph{Background on #1}}
+
+\newcommand{\thrustgoal}{\paragraph{Goal of this thrust}}
+
+\newcommand{\thrustadvantages}{\subparagraph{Benefits of the proposed approach}}
+
+\newcommand{\thrustlimitations}{\subparagraph{Possible challenges and mitigation strategies}}
+
+\newcommand{\proposalcontribution}[1]{\subsection{#1}}
+\newcommand{\proposalfuturedirections}{\paragraph{Additional future directions}}
+
+\newcommand{\thrustsubtitlesassubsections}{
+\renewcommand{\proposalcontribution}[1]{\subsection{##1}}
+\renewcommand{\proposalfuturedirections}{\subsection{Additional future directions}}
+}
+
+\newcommand{\priormerit}{\emph{Intellectual merit:}~}
+\newcommand{\priorrelation}{\emph{Relation with this proposal:}~}
+
+\newcommand{\collaborationletter}{\emph{Letter of collaboration}}
+
+\setlist[description]{%
+  font={\itshape}, % set the label font
+}
+
+% Adjust vertical spacing
+
+% Ref: https://tex.stackexchange.com/questions/68408/remove-vertical-space-around-theorems
+\makeatletter
+\def\thm@space@setup{\thm@preskip=0pt\thm@postskip=0pt}
+\newtheorem{remarknoskip}{Remark}
+\makeatother
+
+\setlength{\intextsep}{0em}
+
+% Side remark boxes
+\newenvironment{sideremark}[2][0.5\textwidth]{%
+\wrapfigure{#2}{#1}\vspace{-3mm}
+
+\mdframed
+\remarknoskip
+}{%
+\endremarknoskip
+\endmdframed
+\endwrapfigure
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

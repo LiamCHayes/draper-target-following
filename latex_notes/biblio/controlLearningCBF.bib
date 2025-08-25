@@ -1,0 +1,148 @@
+@inproceedings{wang2018safe,
+  title={Safe learning of quadrotor dynamics using barrier certificates},
+  author={Wang, Li and Theodorou, Evangelos A and Egerstedt, Magnus},
+  booktitle=IEEE_C_ICRA,
+  pages={2460--2465},
+  year={2018},
+  organization={IEEE}
+}
+
+@inproceedings{srinivasan2020synthesis,
+  title={Synthesis of control barrier functions using a supervised machine learning approach},
+  author={Srinivasan, Mohit and Dabholkar, Amogh and Coogan, Samuel and Vela, Patricio A},
+  booktitle=IEEE_C_IROS,
+  pages={7139--7145},
+  year={2020},
+  notes={uses SVM to fit obstacles from measurements}
+}
+
+@article{emam2021data,
+  title={Data-driven robust barrier functions for safe, long-term operation},
+  author={Emam, Yousef and Glotfelter, Paul and Wilson, Sean and Notomista, Gennaro and Egerstedt, Magnus},
+  journal=IEEE_J_RA,
+  year={2021},
+  publisher={IEEE},
+  notes={consider differential inclusions, additive and multiplicative disturbances that are convex hulls}
+}
+
+@inproceedings{cohen2020approximate,
+  title={Approximate optimal control for safety-critical systems with control barrier functions},
+  author={Cohen, Max H and Belta, Calin},
+  booktitle=IEEE_C_CDC,
+  pages={2062--2067},
+  year={2020},
+  organization={IEEE}
+}
+
+@article{taylor2020towards,
+  title={Towards Robust Data-Driven Control Synthesis for Nonlinear Systems with Actuation Uncertainty},
+  author={Taylor, Andrew J and Dorobantu, Victor D and Dean, Sarah and Recht, Benjamin and Yue, Yisong and Ames, Aaron D},
+  journal={arXiv preprint arXiv:2011.10730},
+  notes={Robust CBF optimization with datapoint-specific Lipschitz bounds on the unmodeled dynamics},
+  year={2020}
+}
+
+@inproceedings{taylor2020learning,
+  title={Learning for safety-critical control with control barrier functions},
+  author={Taylor, Andrew and Singletary, Andrew and Yue, Yisong and Ames, Aaron},
+  booktitle={Learning for Dynamics and Control},
+  pages={708--717},
+  year={2020},
+  note={Learn to predict Lie derivatives for CBF.}
+}
+
+@article{choi2020reinforcement,
+  title={Reinforcement Learning for Safety-Critical Control under Model Uncertainty, using Control Lyapunov Functions and Control Barrier Functions},
+  author={Choi, Jason and Casta{\~n}eda, Fernando and Tomlin, Claire J and Sreenath, Koushil},
+  journal={arXiv preprint arXiv:2004.07584},
+  year=2020,
+  note={CBF Model Uncertainty with RL and NN}
+}
+
+@inproceedings{cheng2019end,
+  title={End-to-end safe reinforcement learning through barrier functions for safety-critical continuous control tasks},
+  author={Cheng, Richard and Orosz, G{\'a}bor and Murray, Richard M and Burdick, Joel W},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  volume={33},
+  pages={3387--3395},
+  year={2019}
+}
+
+@article{chen2019enhancing,
+  title={Enhancing the performance of a safe controller via supervised learning for truck lateral control},
+  author={Chen, Yuxiao and Hereid, Ayonga and Peng, Huei and Grizzle, Jessy},
+  journal={Journal of Dynamic Systems, Measurement, and Control},
+  volume={141},
+  number={10},
+  year={2019},
+  note={Uses CBF as a safety supervisor for neural network controller, CBF is assumed estimated using SoS},
+  publisher={American Society of Mechanical Engineers Digital Collection}
+}
+
+@article{khojasteh2019probabilistic,
+  title={Probabilistic safety constraints for learned high relative degree system dynamics},
+  author={Khojasteh, Mohammad Javad and Dhiman, Vikas and Franceschetti, Massimo and Atanasov, Nikolay},
+  journal={arXiv preprint arXiv:1912.10116},
+  year={2019},
+  annote={learn homogeneous dynamics using GP, quadratic CBF chance constraint, use to compute self-triggered time.}
+}
+
+@article{dhiman2020control,
+  title={Control Barriers in Bayesian Learning of System Dynamics},
+  author={Dhiman, Vikas and Khojasteh, Mohammad Javad and Franceschetti, Massimo and Atanasov, Nikolay},
+  journal={arXiv preprint arXiv:2012.14964},
+  year={2020},
+  annote={matrix-valued GPs, apply in CBF chance constraint, very similar to khojasteh2019probabilistic}
+}
+
+@inproceedings{salehi2019active,
+  title={Active sampling based safe identification of dynamical systems using extreme learning machines and barrier certificates},
+  author={Salehi, Iman and Yao, Gang and Dani, Ashwin P},
+  booktitle=IEEE_C_ICRA,
+  pages={22--28},
+  year={2019},
+  annote={Use single-layer NN for learning from demonstration, use CBF + Lipschitz constant + finite sampling to enforce convergence}
+}
+
+@article{li2019formal,
+  title={A formal methods approach to interpretable reinforcement learning for robotic planning},
+  author={Li, Xiao and Serlin, Zachary and Yang, Guang and Belta, Calin},
+  journal={Science Robotics},
+  volume={4},
+  number={37},
+  year={2019},
+  publisher={Science Robotics}
+}
+
+@inproceedings{cheng2020safe,
+  title={Safe multi-agent interaction through robust control barrier functions with learned uncertainties},
+  author={Cheng, Richard and Khojasteh, Mohammad Javad and Ames, Aaron D and Burdick, Joel W},
+  booktitle=IEEE_C_CDC,
+  pages={777--783},
+  year={2020},
+  annote={Learn polytopic bound for disturbance in a robust CBF formulation}
+}
+
+@article{xiao2021barriernet,
+  title={Barriernet: A safety-guaranteed layer for neural networks},
+  author={Xiao, Wei and Hasani, Ramin and Li, Xiao and Rus, Daniela},
+  journal={arXiv preprint arXiv:2111.11277},
+  year={2021},
+  notes={back-propagates through QP}
+}
+
+%% CBF Learn safe space with RL
+@article{ma2021model,
+  title={Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function},
+  author={Ma, Haitong and Chen, Jianyu and Li, Shengbo Eben and Lin, Ziyu and Guan, Yang and Ren, Yangang and Zheng, Sifa},
+  journal={arXiv preprint arXiv:2103.01556},
+  year={2021}
+}
+
+@article{marvi2020safe,
+  title={Safe reinforcement learning: A control barrier function optimization approach},
+  author={Marvi, Zahra and Kiumarsi, Bahare},
+  journal={International Journal of Robust and Nonlinear Control},
+  year={2020},
+  publisher={Wiley Online Library}
+}

@@ -1,0 +1,287 @@
+@article{korda2018linear,
+  title={Linear predictors for nonlinear dynamical systems: {K}oopman operator meets {M}odel {P}redictive {C}ontrol},
+  author={Korda, Milan and Mezi{\'c}, Igor},
+  journal={Automatica},
+  volume=93,
+  pages={149--160},
+  year=2018,
+  publisher={Elsevier},
+  annote={Application with MPC. Interestingly, if we include non-linear constraints functions in the observables, then we can cast nonlinear constraints  as linear}
+}
+
+@article{williams2016extending,
+  title={Extending data-driven Koopman analysis to actuated systems},
+  author={Williams, Matthew O and Hemati, Maziar S and Dawson, Scott TM and Kevrekidis, Ioannis G and Rowley, Clarence W},
+  journal={IFAC-PapersOnLine},
+  volume=49,
+  number=18,
+  pages={704--709},
+  year=2016,
+  publisher={Elsevier},
+  annote={Extension using inputs, uses $K(u)$}
+}
+
+@article{kaiser2021data,
+  title={Data-driven discovery of Koopman eigenfunctions for control},
+  author={Kaiser, Eurika and Kutz, J Nathan and Brunton, Steven},
+  journal={Machine Learning: Science and Technology},
+  year=2021,
+  publisher={IOP Publishing},
+  annote={Continuous time controlled EDMD, implies learning Lie derivatives to include the control}
+}
+
+@article{bruder2021advantages,
+  title={Advantages of bilinear Koopman realizations for the modeling and control of systems with unknown dynamics},
+  author={Bruder, Daniel and Fu, Xun and Vasudevan, Ram},
+  journal={IEEE Robotics and Automation Letters},
+  volume=6,
+  number=3,
+  pages={4369--4376},
+  year=2021,
+  publisher={IEEE},
+  annote={Gives conditions for which Koopman model can be bilinear. Uses MPC with bilinear controlled Koopman operator, but linearizes with initial state to keep the MPC convex.}
+}
+
+@inproceedings{li2019learning,
+  title={Learning Compositional Koopman Operators for Model-Based Control},
+  author={Li, Yunzhu and He, Hao and Wu, Jiajun and Katabi, Dina and Torralba, Antonio},
+  booktitle=ICLR,
+  year=2019
+}
+
+@inproceedings{abrahammodel,
+  title={Model-Based Control Using {K}oopman Operators},
+  author={Abraham, Ian and De La Torre, Gerardo and Murphey, Todd D},
+  booktitle=RSS,
+  year=2017
+}
+
+@article{abraham2019active,
+  title={Active learning of dynamics for data-driven control using Koopman operators},
+  author={Abraham, Ian and Murphey, Todd D},
+  journal=IEEE_J_RA,
+  volume={35},
+  number={5},
+  pages={1071--1083},
+  year={2019},
+  publisher={IEEE},
+  annote={Uses constant $B$ formulation, active learning by mode insertion}
+}
+
+@article{kaiser2018sparse,
+  title={Sparse identification of nonlinear dynamics for model predictive control in the low-data limit},
+  author={Kaiser, Eurika and Kutz, J Nathan and Brunton, Steven L},
+  journal={Proceedings of the Royal Society A},
+  volume={474},
+  number={2219},
+  pages={20180335},
+  year={2018},
+  publisher={The Royal Society Publishing},
+  annote={Combines with sparse dynamical systems learning}
+}
+
+@article{proctor2018generalizing,
+  title={Generalizing Koopman theory to allow for inputs and control},
+  author={Proctor, Joshua L and Brunton, Steven L and Kutz, J Nathan},
+  journal={SIAM Journal on Applied Dynamical Systems},
+  volume={17},
+  number={1},
+  pages={909--930},
+  year={2018},
+  publisher={SIAM},
+  annote={General efuns depending on both $x$ and $u$, or assumes control field is constant ($B$ does not depend on $x$)}
+}
+
+@article{proctor2016dynamic,
+  title={Dynamic mode decomposition with control},
+  author={Proctor, Joshua L and Brunton, Steven L and Kutz, J Nathan},
+  journal={SIAM Journal on Applied Dynamical Systems},
+  volume={15},
+  number={1},
+  pages={142--161},
+  year={2016},
+  publisher={SIAM},
+  annote={Assumes control field is constant ($B$ does not depend on $x$)}
+}
+
+
+% bilinear model
+
+@inproceedings{surana2016koopman,
+  title={Koopman operator based observer synthesis for control-affine nonlinear systems},
+  author={Surana, Amit},
+  booktitle=IEEE_C_CDC,
+  pages={6492--6499},
+  year={2016},
+  organization={IEEE},
+  annote={Introduces Koopman Canonical Transform (change of coordinates, $B$ depends on Lie derivatives), concept of observable form}
+}
+
+@inproceedings{goswami2017global,
+  title={Global bilinearization and controllability of control-affine nonlinear systems: A Koopman spectral approach},
+  author={Goswami, Debdipta and Paley, Derek A},
+  booktitle=IEEE_C_CDC,
+  pages={6107--6112},
+  year={2017},
+  organization={IEEE},
+  annote={Shows that the KCF from surana2016koopman can actually be written as a bilinear form.}
+}
+
+@inproceedings{huang2018feedback,
+  title={Feedback stabilization using Koopman operator},
+  author={Huang, Bowen and Ma, Xu and Vaidya, Umesh},
+  booktitle=IEEE_C_CDC,
+  pages={6434--6439},
+  year={2018},
+  organization={IEEE},
+  annote={Uses quadratic Lyapunov function, linearizes systems, and gets a bilinear system form (assuming Jacobian is in the span of $\Psi$). Then $\dot{V}=z\transpose (PA+A\transpose P)z+uz\transpose (PB+B\transpose P)z$}
+}
+
+@inproceedings{krolicki2022nonlinear,
+  title={Nonlinear Dual-Mode Model Predictive Control using {K}oopman Eigenfunctions},
+  author={Krolicki, Alexander and Tellez-Castro, Duvan and Vaidya, Umesh},
+  booktitle=IEEE_C_CDC,
+  pages={3074--3079},
+  year={2022},
+  organization={IEEE},
+  annote={Find nonlinear change of coordinates $\Psi(x)=x+h(x)$ to linearize with $B(x)$. Solve design problem using LMIs parametrized $x$, with sampling. Uses \emph{random covering theorem} to show convergence. Uses to find controlled invariant set, and finite-horizon MPC.}
+}
+
+@article{zhang2022robust,
+  title={Robust tube-based model predictive control with Koopman operators},
+  author={Zhang, Xinglong and Pan, Wei and Scattolini, Riccardo and Yu, Shuyou and Xu, Xin},
+  journal={Automatica},
+  volume={137},
+  pages={110114},
+  year={2022},
+  publisher={Elsevier},
+  annote={Consideration of controllability, observability, identifiability}
+}
+
+@inproceedings{folkestad2021koopman,
+  title={Koopman {NMPC}: {K}oopman-based learning and nonlinear model predictive control of control-affine systems},
+  author={Folkestad, Carl and Burdick, Joel W},
+  booktitle=IEEE_C_ICRA,
+  pages={7350--7356},
+  year={2021},
+  organization={IEEE},
+  annote={Uses bilinear input model, applies MPC}
+}
+
+@inproceedings{folkestad2020extended,
+  title={Extended dynamic mode decomposition with learned koopman eigenfunctions for prediction and control},
+  author={Folkestad, Carl and Pastor, Daniel and Mezic, Igor and Mohr, Ryan and Fonoberova, Maria and Burdick, Joel},
+  booktitle=IEEE_C_ACC,
+  pages={3906--3913},
+  year={2020},
+  organization={IEEE},
+  annote={Makes assumption of stable system, then uses that to build efuns from diffeomorphism to linearization}
+}
+
+@inproceedings{folkestad2020episodic,
+  title={Episodic Koopman learning of nonlinear robot dynamics with application to fast multirotor landing},
+  author={Folkestad, Carl and Pastor, Daniel and Burdick, Joel W},
+  booktitle=IEEE_C_ICRA,
+  pages={9216--9222},
+  year={2020},
+  organization={IEEE},
+  annote={Applies folkestad2020extended to layer MPC controllers over episodes.}
+}
+
+% From Drew
+@article{shi2022deep,
+	title = {Deep {Koopman} {Operator} {With} {Control} for {Nonlinear} {Systems}},
+	volume = {7},
+	issn = {2377-3766},
+	number = {3},
+	journal = IEEE_J_RAL,
+	author = {Shi, Haojie and Meng, Max Q.-H.},
+	month = jul,
+	year = {2022},
+	note = {Conference Name: IEEE Robotics and Automation Letters},
+	pages = {7700--7707},
+  annote={Learns a network so that embedded $u$ enters linearly; k-step loss function}
+}
+
+@article{ng2021model,
+  title={Model predictive control and transfer learning of hybrid systems using lifting linearization applied to cable suspension systems},
+  author={Ng, Jerry and Asada, H Harry},
+  journal=IEEE_J_RAL,
+  volume={7},
+  number={2},
+  pages={682--689},
+  year={2021},
+  publisher={IEEE},
+  annote={Uses linear input version, does not mention how discontinuity due to hybrid dynamics can be handled.}
+}
+
+@article{hara2020learning,
+  title={Learning Koopman operator under dissipativity constraints},
+  author={Hara, Keita and Inoue, Masaki and Sebe, Noboru},
+  journal={IFAC-PapersOnLine},
+  volume={53},
+  number={2},
+  pages={1169--1174},
+  year={2020},
+  publisher={Elsevier},
+  annote={Uses formulation that is linear in inputs, and passivity-derived LMI condition for imposing stability}
+}
+
+@article{gutow2020koopman,
+	title = {Koopman {Operator} {Method} for {Chance}-{Constrained} {Motion} {Primitive} {Planning}},
+	volume = {5},
+	issn = {2377-3766},
+	number = {2},
+	journal = IEEE_J_RAL,
+	author = {Gutow, Geordan and Rogers, Jonathan D.},
+	month = apr,
+	year = {2020},
+  annote={Uses KO to map initial conditions to end conditions of a primitive and then compute chance constraints},
+	pages = {1572--1578},
+}
+
+@article{yu2022data,
+  title={Data-driven optimal control of nonlinear dynamics under safety constraints},
+  author={Yu, Hongzhe and Moyalan, Joseph and Vaidya, Umesh and Chen, Yongxin},
+  journal=IEEE_J_CSL,
+  volume={6},
+  pages={2240--2245},
+  year={2022},
+  publisher={IEEE},
+  annote={Uses Perron-Frobenius operator to find optimal reach-avoid control}
+}
+
+@misc{yu2023data,
+	title = {Data-driven optimal control under safety constraints using sparse {Koopman} approximation},
+	url = {http://arxiv.org/abs/2306.00596},
+	author = {Yu, Hongzhe and Moyalan, Joseph and Vaidya, Umesh and Chen, Yongxin},
+	year = {2023},
+  annote={Uses yu2022data with RBF}
+}
+
+@article{yao2023koopman,
+	title = {Koopman-{Operator}-{Based} {Safe} {Learning} {Control} for {Spacecraft} {Attitude} {Reorientation} {With} {Angular} {Velocity} {Constraints}},
+	journal = IEEE_J_AES,
+	author = {Yao, Junyu and Hu, Qinglei and Zheng, Jianying},
+	year = {2023},
+	pages = {1--14},
+  annote={Uses learned observables}
+}
+
+@inproceedings{alora2023data,
+	title = {Data-{Driven} {Spectral} {Submanifold} {Reduction} for {Nonlinear} {Optimal} {Control} of {High}-{Dimensional} {Robots}},
+	booktitle = IEEE_C_ICRA,
+	author = {Alora, John Irvin and Cenedese, Mattia and Schmerling, Edward and Haller, George and Pavone, Marco},
+	month = may,
+	year = {2023},
+	pages = {2627--2633},
+  annote={Similar to DMD, uses multiple constant $B$'s}
+}
+
+@inproceedings{abraham2017model,
+  title={Model-based control using {K}oopman operators},
+  author={Abraham, Ian and De La Torre, Gerardo and Murphey, Todd D},
+  booktitle=RSS,
+  year={2017},
+  organization={MIT Press Journals}
+}

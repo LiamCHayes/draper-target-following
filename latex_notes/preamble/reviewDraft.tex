@@ -1,0 +1,22 @@
+\usepackage{background}
+\backgroundsetup{contents={%
+    \begin{tikzpicture}[overlay,font=\sffamily]
+      % \newcommand{\scaletop}{-.68in}
+      % \newcommand{\scalepitch}{1.15em}
+      % \newcommand{\scaleoffset}{.5in}
+      % \foreach \x in {1,...,60}{
+      %   \node at ($(current page.north west)+(\scaleoffset,\scaletop-\scalepitch*\x)$) {\pgfmathparse{int((\value{page}-1)*200+\x)}\pgfmathresult};
+      %   \node at ($(current page.north east)+(-\scaleoffset,\scaletop-\scalepitch*\x)$) {\pgfmathparse{int((\value{page}-1)*200+100+\x)}\pgfmathresult};
+      % }
+      \node at ($(current page.south)+(0,.5in)$) {*** For Review Only ***};
+    \end{tikzpicture}
+  },color=blue,scale=1,angle=0}
+\let\bframe\relax %remove command from robotics.tex conflicting with lineno
+\usepackage[displaymath, mathlines,switch]{lineno}
+\linenumbers
+\author{\textcolor{blue}{\sffamily Author Names Omitted for Anonymous Review}}
+\renewcommand{\author}[1]{}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

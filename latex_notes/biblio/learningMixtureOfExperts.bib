@@ -1,0 +1,77 @@
+@article{jacobs1991adaptive,
+  title={Adaptive mixtures of local experts},
+  author={Jacobs, Robert A and Jordan, Michael I and Nowlan, Steven J and Hinton, Geoffrey E},
+  journal={Neural computation},
+  volume=3,
+  number=1,
+  pages={79--87},
+  year=1991,
+  publisher={MIT Press},
+  notes={original mixture of experts with gating network}
+}
+
+@article{jordan1994hierarchical,
+  title={Hierarchical mixtures of experts and the {EM} algorithm},
+  author={Jordan, Michael I and Jacobs, Robert A},
+  journal={Neural computation},
+  volume={6},
+  number={2},
+  pages={181--214},
+  year={1994},
+  publisher={MIT Press},
+  notes={Trees of MoEs}
+}
+
+@inproceedings{wang2020deep,
+  title={Deep mixture of experts via shallow embedding},
+  author={Wang, Xin and Yu, Fisher and Dunlap, Lisa and Ma, Yi-An and Wang, Ruth and Mirhoseini, Azalia and Darrell, Trevor and Gonzalez, Joseph E},
+  booktitle={Uncertainty in artificial intelligence},
+  pages={552--562},
+  year=2020,
+  organization={PMLR},
+  notes={stacks MoEs, with multi-head gating network}
+}
+
+@article{collobert2001parallel,
+  title={A parallel mixture of {SVM}s for very large scale problems},
+  author={Collobert, Ronan and Bengio, Samy and Bengio, Yoshua},
+  journal=NIPS,
+  volume={14},
+  year={2001},
+  notes={uses SVMs, separates gating and experts training and loops}
+}
+
+@inproceedings{shazeer2017outrageously,
+  title={Outrageously large neural networks: The sparsely-gated mixture-of-experts layer},
+  author={Shazeer, Noam and Mirhoseini, Azalia and Maziarz, Krzysztof and Davis, Andy and Le, Quoc and Hinton, Geoffrey and Dean, Jeff},
+  booktitle=ICLR,
+  year=2017,
+  notes={uses DNNs, noise to do balancing, applied in LSTM for NLP}
+}
+
+@inproceedings{gross2017hard,
+  title={Hard mixtures of experts for large scale weakly supervised vision},
+  author={Gross, Sam and Ranzato, Marc'Aurelio and Szlam, Arthur},
+  booktitle=IEEE_C_CVPR,
+  pages={6865--6873},
+  year={2017},
+  notes={Uses DNNs with common decoder, hard split of data}
+}
+
+@inproceedings{ahmed2016network,
+  title={Network of experts for large-scale image categorization},
+  author={Ahmed, Karim and Baig, Mohammad Haris and Torresani, Lorenzo},
+  booktitle=IEEE_C_ECCV,
+  pages={516--532},
+  year={2016},
+  organization={Springer},
+  notes={Separates learning of gating network (to follow class boundaries, with iterative learning/clustering) from specialty networks}
+}
+
+@inproceedings{eigen2014learning,
+title	= {Learning Factored Representations in a Deep Mixture of Experts},
+author	= {David Eigen and Marc'Aurelio Ranzato and Ilya Sutskever},
+year	= 2014,
+booktitle=ICLR,
+notes={stack of two MoE with DNNs}
+}

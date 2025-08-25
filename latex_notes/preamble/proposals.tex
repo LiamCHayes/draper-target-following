@@ -1,0 +1,17 @@
+
+\input{preamble/compactLists}
+\input{preamble/proposalsPagination}
+\input{preamble/proposalsFormatting}
+\input{preamble/splitting}
+
+\newcommand{\testgrid}{\tikz[remember picture, overlay]{%
+  \coordinate (tl) at  ($(current page.north west)+(1in,-1in)$);%
+  \coordinate (br) at  ($(current page.south east)+(-1in,1in)$);%
+  \draw[red] (tl) rectangle (br);%
+  \draw[red] (tl) grid[xstep=2\textwidth,ystep=1in] (br);}}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

@@ -1,0 +1,440 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+% Use the following line instead of the previous one for a4 paper
+% \documentclass[a4paper, 10pt, conference]{ieeeconf}
+
+\IEEEoverridecommandlockouts  % This command is only needed if you want to use the \thanks command
+
+\overrideIEEEmargins  % Needed to meet printer requirements.
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+\input{preamble/common}
+\input{preamble/reviewDraft} % <--- Comment or uncomment for final version or review draft
+% \input{preamble/reviewDraftClean} % <--- If you comment the previous line and have errors, uncomment this line for one compilation (you can remove it again afterwards)
+\newcommenter{todo}{Firebrick1}
+
+\title{\LARGE \bf
+Template \& Guide for IEEE-Style Technical Papers
+}
+
+
+\author{Roberto Tron$^{1}$% <-this % stops a space
+\thanks{This work was not supported by any organization}% <-this % stops a space
+\thanks{$^{1}$Roberto Tron is with the Department of Mechanical Engineering,
+        Boston University, 110 Cummington Mall, MA 02215, United States
+        {\tt\small tron@bu.edu}}%
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+  This electronic document is a live template. The various components of your paper (titles, text, floats, etc.) are illustrated by different parts of this document.
+  The abstract should be about three-four paragraphs long: one paragraph to state what is the problem considered, one (optional) paragraph to highlight the challenges of the problem, one paragraph summarizing the key aspects of the proposed solution (it is best if it also highlights the originality of the ideas with respect to the state of the art), and a final paragraph stating how the proposed solution is evaluated (simulations or real experiments, possibly including key results or statistics, e.g., \emph{``we improved the recognition rate by $10\%$ on standard benchmarks with respect to previous approaches''}).
+  Do not use symbols, special characters, footnotes, or math in the paper title or abstract except for exceptional cases.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{INTRODUCTION}
+
+This template provides authors with most of the formatting specifications, and writing and typesetting tips needed for preparing your technical papers.
+As in any ``rule'' in writing, sooner or later you will find exceptions where not following the suggestions of this document makes sense; however, you should always ask yourself whether the document would improve by following them.
+
+Use this sample document as your LaTeX source file to create your document. Rename this file using the convention year-conference-camelCaseDescription, e.g., \texttt{2020-icra-multirobotPlanning.tex}.
+
+\subsection{Maintaining the Integrity of the Specifications}
+
+The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations.
+
+\section{WRITING ADVICE}
+
+In general, it is a good idea to first focus on the \emph{content} of the paper instead of the \emph{format}. Nevertheless, there are a few considerations that are easier to address while writing. See sections \ref{sec:abbreviations}--\ref{sec:units} below.
+
+\subsection{Standard structure of the paper}
+The following is a standard outline for a paper, with recommendations on what to include in each section.
+\begin{enumerate}
+\item Abstract
+  \begin{itemize}
+  \item State what problem is solved
+  \item Give an idea of how it is solved
+  \item It is best to finish the abstract with the "puchline" of the paper (e.g., "We show global convergence", "We improve the state of the art by $50\%$ on standard benchmarks").
+  \item No numbered references in the abstract (e.g., to bibliography). Mathematical symbols should be used \emph{very} parsimoniously.
+  \end{itemize}
+\item Introduction
+  \begin{itemize}
+  \item State what problem is considered and why it is important (e.g., it
+    appears in important applications, or it has been studied for 30 years).
+  \item To define the problem: informally state assumptions (e.g., what measurements are available), and desired goals (e.g., desired outputs or properties, such as stability).
+  \item It is good to give informal overview of the class of techniques used.
+  \item Prior work: list relevant work, and contrast the problem we solve with the problem they solve (differences in assumptions or goals), and/or solution techniques (e.g., they use greedy algorithms, we use nonlinear optimization). \rtron{For some venues, it is customary to discuss related work at the end of the paper; this makes sense because we can then refer to the details of our work to highlight differences.}
+  \item Paper contributions: why our paper is cool, and what improves with respect to the state of the art.
+  \end{itemize}
+\item Preliminaries
+  \begin{itemize}
+  \item Notation
+  \item Definitions/Propositions/Theorems that are used from previous papers.
+  \item This section should work as a "part list", i.e., list all the parts that we will "assemble" later.
+  \end{itemize}
+\item Proposed method
+  \begin{itemize}
+  \item Describe the proposed solution
+  \item Try to give rigorous explanations (e.g., mathematical proofs) followed by a more intuitive explanation (so that one can get the idea of the paper without completely following the mathematical details).
+  \end{itemize}
+\item Validation (Simulations or Experiments)
+  \begin{itemize}
+  \item If it is a theoretical paper, simulations should confirm the theoretical findings.
+  \item If it is a applied paper, results (both simulations and experiments) should be very convincing.
+  \end{itemize}
+\item Conclusion
+  \begin{itemize}
+  \item What we learned from the paper. Avoid simple repetitions of the abstract.
+  \item Directions for future work
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Capitalization of titles}
+For conferences from the Control Systems (such as IEEE Conference on Decision and Controls, CDC, or IEEE American Control Conference, ACC) and Robotics and Automation Societies (IEEE International Conference on Robotics and Automation, ICRA), the main and subsection titles should be capitalized at every word (except articles and conjunction), while section titles should be entirely uppercase.
+
+\subsection{Abbreviations and Acronyms}\label{sec:abbreviations}
+Define abbreviations and acronyms the first time they are used in the text, even after they have been defined in the abstract. Abbreviations such as IEEE, SI, MKS, CGS, sc, dc, and rms do not have to be defined. Do not use abbreviations in the title or heads unless they are unavoidable.
+
+\subsection{Verb tenses}
+It is customary to use ``we'' to identify the authors, or the (single) author and the reader. It is also customary to use the present tense throughout the entire manuscript. In particular, instead of saying ``In Section X we will prove \ldots'' use ``In Section X we prove''; the logic behind this is that your statement are true at any point of time. For the same reason, avoid constructions as ``next, we show \ldots'', and prefer ``below, we show \ldots''.
+
+\subsection{Some Common Mistakes}\label{sec:mistakes}
+Avoid staring a new section with an itemized list, equation, abbreviation, or something similar; you can usually insert some introductory text as we did here.
+\begin{itemize}
+\item When revising your writing, look out for situations where you can turn a description or the use of the word ``that'' in an action; for instance, ``This section contains suggestions regarding'' can become ``This section suggests''. % ``We need to state that'' can become'' `'
+  The latter form is shorter, and typically more pleasant to read.
+\item The word data is plural, not singular.
+\item The subscript for the permeability of vacuum $\cdot_0$ and other common scientific constants, is zero with subscript formatting, not a lowercase letter o.
+\item In American English, commas, semi-colons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
+\item A graph within a graph is an inset, not an insert. The word alternatively is preferred to the word alternately (unless you really mean something that alternates between different states).
+\item Do not use the word essentially to mean approximately or effectively.
+\item In your paper title, if the words that uses can accurately replace the word using, capitalize the u; if not, keep using lower-cased.
+\item Be aware of the different meanings of homophones, such as affect and effect, complement and compliment, discreet and discrete, principal and principle.
+\item Do not confuse imply and infer.
+\item The prefix non is not a word; it should be joined to the word it modifies, usually without a hyphen.
+\item Compound adjectives (adjectives composed of multiple words) should be joined through hyphens to show that they are part of a single unit. For instance, compare ``results form the state of the art'' versus ``state-of-the-art results''; in the latter, ``state of the art'' is used as an adjective.
+\item There is no period after the et in the Latin abbreviation et al..
+\item The abbreviation i.e. means that is, and the abbreviation e.g. means for example. They are typically immediately followed by a comma.
+\item Avoid \emph{weasel words}, such as, for instance \cite{WeaselWords}:
+  \begin{itemize}
+  \item \emph{a bit}, \emph{various}, \emph{fairly}, \emph{quite}: when used to describe something, these words might sound technical, but they are void of a precise meaning. Usually, you will find yourself using these words when you are not completely sure about what you want to state, or you are afraid to make clear statements.
+  \item \emph{interestingly}, \emph{surprisingly}, \emph{remarkably}, \emph{clearly}: these words express subjective evaluations, and the reader might not agree with you (e.g., something might surprise you, but it might be well known in another area, or it might be trivial to you, but not to your reader).
+  \item \emph{most}, \emph{many}, \emph{few}, \emph{vast}, \emph{several}: when used to describe objective data, these adjectives convey the idea that you did not your homework to precisely characterize something.
+  \item \emph{note that}: use sparingly, otherwise, if everything is highlighted as important, then nothing is. Consider also using a \texttt{remark} environment if you need to refer back to this observation.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Polishing your writing}
+After you completed a draft of your paper, please consider the following points to improve the prose and presentation; these guidelines should be considered mandatory for final conference or journal submissions.
+\begin{itemize}
+\item Proofread the paper to from a high-level perspective:
+  \begin{enumerate}
+  \item Are parts of the arguments that are related and should be moved together? For instance, if you define a term, but you find yourself not using it until you get to another definition or  theorem, you should consider delaying the definition to where it is needed.
+  \item Do the sentences, paragraphs, and sections follow a meaningful division of the work? Do they tell a nice \emph{story}?
+  \item Look for \emph{semantic symmetries}, especially if you have lists. For instance, if you have a list of shortcomings in previous work, and then a list of your contributions, the two should be easily mapped, one to the other, in order.
+\end{enumerate}
+
+\item Avoid orphan and widow lines \cite{WidowOrphanLines}; these are lines that are either too short at the end of a paragraph (orphans), or that appear at the beginning of a page or column but are the ending line of the previous paragraph. See Fig.~\ref{fig:orphan-line} for an example. You should try to avoid these problems by rephrasing and shortening your prose; as an added benefit, you will also gain a significant amount of space when you have a page limit restriction.
+\item Work iteratively and at multiple levels. Pay attention to the structure of single sentences, then to groups of sentences in paragraphs, paragraphs in sections, and sections in papers.
+\item As a rule of thumb, a paper is really ready if you can read through its entirety with your full attention
+\end{itemize}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/orphan-line}
+  \caption{An example of an orphan line}
+  \label{fig:orphan-line}
+\end{figure}
+
+\section{TYPESETTING AND ORGANIZATION OF MATHEMATICS}
+\subsection{Equations}
+
+Use the AMS Math environments to typeset display-style equations, as the equation below:
+\begin{equation}
+  \label{eq:newtown-law}
+  F=ma.
+\end{equation}
+
+Do not use the bare \TeX{} syntax with the double-dollar signs. In general, number all equations (this is the default behavior of the standard equation environments). Punctuate equations with commas or periods when they are part of a sentence. For instance, Euler's law for rotational motion in 2-D is
+\begin{equation}
+  \label{eq:euler-law}
+  \tau=I\alpha,
+\end{equation}
+where $\tau$ is the sum of torques, $I$ is the moment of inertia, and $\alpha$ is the angular acceleration. The idea is the reader should be able to \emph{read} the equation aloud as text. See also \eqref{eq:newtown-law}.
+
+Be sure that the symbols in your equation have been defined before or immediately following the equation. Refer to equations using the command \texttt{eqref} instead of \texttt{ref} (this will automatically add the parentheses); at the beginning of a sentence, use the word \emph{Equation} as in the following. Equation \eqref{eq:euler-law} is Euler's law of motion.
+
+Get familiar with the \verb|amsmath| package environments for equations (\verb|align|,\verb|gather|,\verb|multline|,\verb|split|), and matrix envinroments with paretheses (\verb|bmatrix|, \verb|Bmatrix|, \verb|vmatrix| and \verb|Vmatrix|).
+
+See the following for a quick reference of most common situations.
+\begin{itemize}
+\item Aligned equations:
+  \begin{align}
+      F&=ma,\\
+      \tau&=I\alpha.
+  \end{align}
+  Again, note the use of commas and periods. The same environment can be used to put equations side-by-side:
+  \begin{align}
+    F&=ma, & \tau&=I\alpha.
+  \end{align}
+\item Long equations:
+  \begin{multline}
+    2g(\nabla_XY,Z)=Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)\\
+    +g(Z,[X,Y])+g(Y,[Z,X])+g(X,[Z,Y]).
+  \end{multline}
+  Equations should preferably be broken at equal signs, and plus or minus signs as second option.
+
+\item Matrices and vectors:
+  \begin{equation}
+    \bmat{
+      a_1b_1 & a_1b_2 & \cdots &a_1 b_m\\
+      a_2b_1 & \ddots && \vdots\\
+      \vdots\\
+      a_nb_1&\cdots&&a_nb_m
+    }=\bmat{a_1\\\vdots\\a_n}\bmat{b_1 & \cdots & b_m}.
+  \end{equation}
+\item Optimization problems, sub-equations:
+  \begin{subequations}
+    \label{eq:sample-optimization}
+    \begin{align}
+      \min_{Z}\; & \frac{1}{2}\norm{Z-X}^2\label{eq:objective}\\
+      \subjectto &   \vct{1}\transpose Z=0,\label{eq:zero-mean-constraint}\\
+                 & [X]_1=0.
+    \end{align}
+  \end{subequations}
+  You can then refer to the entire set \eqref{eq:sample-optimization}, or individual sub-equations, such as the objective \eqref{eq:objective} or a specific constraint \eqref{eq:zero-mean-constraint}.
+  You can also nest the \var{aligned} enviroment for more complicated constraints:
+  \begin{equation}
+    \label{eq:sample-optimization-complex}
+    \begin{aligned}
+      \min_{x,s}\; & s\\
+      \subjectto & \left[
+                   \begin{aligned}
+                           \max_y &x\transpose y\\
+                           \subjectto & Ay\leq b
+                         \end{aligned}
+                   \right]<s\\
+                 & \vct{1}\transpose x=1.
+    \end{aligned}
+  \end{equation}
+
+\item Cases:
+  \begin{equation}\label{eq:sign-def}
+    \sign(x)=
+    \begin{cases}
+      1 & \textrm{if } x>0,\\
+      -1 & \textrm{if } x<0,\\
+      0 & \textrm{otherwise}.
+    \end{cases}
+  \end{equation}
+\end{itemize}
+
+\subsection{Assumptions, Lemmata, Propositions, Theorems}
+You can make \emph{blanket assumptions} directly in the text (e.g., ``From now on, we assume that every graph is undirected''). If you need to assume that something holds w.l.o.g., say why; e.g., ``Without loss of generality, we assume that quantities are expressed in meters (we can use other units by multiplying both sides of all equations by the proper conversion factor)''.
+If you need to refer back to specific assumptions (e.g., because you are discarding them later in the paper), highlight them with the corresponding environments:
+\begin{assumption}\label{assumption:example}
+  Every student in this class is assumed to be proficient in the English language.
+\end{assumption}
+You can then refer back to it as Assumption~\ref{assumption:example}.
+If you have three or more assumptions, consider using a labeled enumeration instead. For instance, every student in this class is assumed to:
+
+\begin{lenumerate}{A}
+\item \label{it:assumption-english} Be proficient in the English language.
+\item Have experience with programming.
+\item \label{it:assumption-probability} Have taken a class in probability.
+\end{lenumerate}
+You can then refer to them as Assumptions~\ref{it:assumption-english}--\ref{it:assumption-probability}.
+
+Definitions are used to establish the meaning of technical terms. You can include multiple related terms in the same definition. The terms that is being defined should be enclosed in the \verb|\emph| macro.
+\begin{definition}
+  We say that a number is \emph{negative} if it is less than zero, and \emph{non-positive} if it is negative or zero.
+\end{definition}
+
+A lemma (lemmata in the plural) is a result (typically, but not always, simple to prove) that is then used as part of a theorem.
+\begin{lemma}
+  This claim will be used in a theorem.
+\end{lemma}
+
+Theorems highlight the most important theoretical results in a paper. You should have only one, and in some rare cases two, main theorems for each paper (not counting preliminary theorems that you might need to quote in the introduction of your paper, see also below).
+\begin{theorem}\label{thm:example}
+  This claim is the most important of the paper.
+\end{theorem}
+If you think it is necessary to quote or paraphrase a theorem from another source, or include the common name of a theorem, use the optional argument of the environment.
+\begin{theorem}[Localizability \cite{Tron:CDC09}]
+  Restate the previous result here.
+\end{theorem}
+
+
+Propositions are lesser results that can stand on their own but are not important as a theorem in the scheme of the paper or are then used in the proof of a theorem.
+\begin{proposition}
+  An important result, but not as important as a theorem.
+\end{proposition}
+
+Corollaries are results (typically with a short proof) that are consequences of a theorem.
+\begin{corollary}
+  A typical example is the application of Theorem~\ref{thm:example} to a particular, but important, case.
+\end{corollary}
+
+Every lemma, proposition, theorem and corollary needs a proof.
+
+\begin{proof}
+  This is only an example, so we do not need to actually demonstrate a claim.
+\end{proof}
+Proofs that are long and from which the reader would not learn anything strictly necessary to understand the paper, can be moved to an appendix; in this case, however, you should still include in the main text an \emph{informal} short statement describing the overall architecture or approach of the proof.
+
+Remarks are used by authors to point out interesting consequences of lemmata, propositions, theorems or proofs. If you need to refer back to a remark, you can include it in an environment.
+
+\begin{remark}
+  For remarks to the results of theorems, consider if instead a corollary would be more appropriate.
+\end{remark}
+
+\subsection{Various Symbols and Commands}
+This section recommendations for miscellaneous mathematical typesetting choices.
+\begin{itemize}
+\item Use the commands \texttt{norm} and \texttt{abs} for, respectively, $\norm{\cdot}$ and $\abs{\cdot}$.
+\item Most of the times, capital letters $A,B,C,\ldots$ are used for matrices; lowercase letters $f,g,v,w,u,s,x,y,\ldots$ are used for vectors, scalars, and functions; calligraphic letters $\cS,\cC$ are used for sets; these, however, are only general guidelines: consistency with previous conventions and uses should take precedence (e.g., see \ref{eq:newtown-law}). The use of the vector accent (e.g., $\vec{v}$) is currently out of fashion.
+\item If you want to be really precise, use $(a,b,\ldots)$ for ordered sets (e.g., coordinates, directed edges in graphs) and $\{a,b,\ldots\}$ for unordered sets (undirected edges in graphs).
+\item For variables that cycle through different numbers, use the in-set notation, not the equal sign: e.g., $i\in{1,2,\ldots}$ instead of $i=1,2,3$. A variable cannot be equal to multiple different values at the same time.
+\item Make sure to define the field and dimensions of vectors and variables, e.g. $v\in\real{d}$, $A\in\complex{d_1\times d_2}$, $s\in\real{}$, and the domain and co-domain for functions and maps, e.g. $f:\real{}\to\real{}$.
+\item Most common functions have a corresponding command that will typeset its name correctly: $\exp$, $\log$, $\min$, $\max$, $\argmin$, $\argmax$, $\trace$, $\sin$, $\cos$, $\tan$, $\sign$.
+\item If you need to add short text in an equation, use the $\verb|\textrm|$ macro (see \eqref{eq:sign-def} for an example).
+\item If you include a number in text that should be treated as an actual mathematical quantity (as opposed to, say, a page number), enclose it in dollar signs to obtain a consistent use of fonts; i.e., use $1234567890$ instead of 1234567890 (notice the difference in the shape of each digit).
+\end{itemize}
+
+
+
+\subsection{Units}\label{sec:units}
+See the following advice when working with units in your writing.
+\begin{itemize}
+\item Use the \texttt{unit} package to help with the formatting of
+  numbers with units. Example: \verb|\unit[25]{\frac{m}{s^2}}}| becomes $\unit[25]{\frac{m}{s^2}}$.
+\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
+\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
+\item Do not mix complete spellings and abbreviations of units: $\unit{\frac{Wb}{m^2}}$'' or ``webers per square meter''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few $\unit{H}$''.
+\item Use a zero before decimal points: ``$0.25$'', not ``$.25$''. Use
+  ``$\unit{cm^3}$'', not ``$\unit{cc}$''.)
+\end{itemize}
+
+
+
+\section{FIGURES, TABLES, AND ALGORITHMS}
+Place figures, tables, and algorithms at the top and bottom of columns. Avoid placing them in the middle of columns. Large figures, tables, and algorithms may span across both columns. Figure captions should be below the figures; table heads should appear above the tables (this will be handled automatically by the \verb|\caption| command). Insert figures and tables around where they are cited in the text (never on a previous page). To center the content, use the command \verb|\centering| (the enviroment \verb|center| achieves a similar result but adds vertical spaces that are typically unwanted).
+
+\subsection{Figures}
+
+Use the abbreviation Fig.~\ref{fig:trajectories}, even at the beginning of a sentence.
+
+\begin{table}[t]
+\caption{An Example of a Table}
+\label{table:example}
+\centering
+\begin{tabular}{lllll}
+  \toprule
+  &\multicolumn{2}{c}{Group A}
+  &\multicolumn{2}{c}{Group B} \\
+  \cmidrule(lr){2-3} \cmidrule(l){4-5}
+  &Age
+  &Height
+  &Grade
+  &Perc.\\
+  \midrule
+  First year & 4 & 8 & 4 & 18 \\
+  Second year & 4 & 8 & 4 & 18 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+Make sure the text in the figure is of a size consistent with the surrounding text (e.g., axes labels of the same size as the caption, e.g., see Fig.~\ref{fig:trajectories}), and that the formatting of the figures is consistent across all figures. The easiest way to enforce this is to output the original figure (e.g., from Matlab) directly to the right size (i.e., you should not need to use \verb|width|,  \verb|height| or \verb|scale| arguments to the \verb|includegraphics| command) and adjust the font sizes in the original graph (i.e., in Matlab). Do not include the extension in the filename given to the \verb|includegraphics| command  ({\LaTeX} will automatically look for all suitable extensions). Always use a vectorial graphic format (typically PDF, as they allow unlimited zoom without quality loss, compare Fig.~\ref{fig:trajectories-base} and Fig.~\ref{fig:trajectories-base-rasterized}), except for real pictures (e.g., a photo of an experiment). Files in the EPS format can be easily converted to PDF using the \verb|epspdf| or \verb|epstopdf| commands in a terminal. Preferably, all graphics files should be in a \verb|figures| subfolder. Avoid 3-D plots (they are typically harder to read than a 2-D equivalent, and transparency, in Matlab, does not vectorize well), unless you have a very good reason, and also a second good reason for the first good reason.
+Use the command \verb|subfloat| to create subfigures. Use double-line-breaks in the source file to control which figures are side-by-side, and which are one on top of the other (as in standard text). Unless you are short on space, always labels also for subfigures (even if you do not have a caption), so that you can always refer to them, as for Fig.~\ref{fig:trajectories-base}. If possible, use the same name for the file and the \LaTeX{} label.
+\begin{figure*}[t]
+  \centering
+  \subfloat[High quality, vectorial version]{\includegraphics{figures/trajectories-base}\label{fig:trajectories-base}}% note the double line break below causes the figure to be formatted below the other
+  \subfloat[Lower quality, rasterized version]{\includegraphics{figures/trajectories-base-raster}\label{fig:trajectories-base-rasterized}}
+  \subfloat[Another figure]{\includegraphics{figures/trajectories-scaled}\label{fig:trajectories-scaled}}
+  \caption{An example of a figure with multiple subfigures. You can refer to subfigures in the main caption, as shown in the next sentence, but you need to protect the command (see source). To see the difference between \protect\subref{fig:trajectories-base} and \protect\subref{fig:trajectories-base-rasterized}, use the maximum zoom level on your PDF viewer}
+  \label{fig:trajectories}
+\end{figure*}
+
+\subsection{Tables}
+ Use the \texttt{booktabs} package to format tables in a professional, uncluttered way, e.g., see Table~\ref{table:example} \rtron{Add bibref to booktabs docs}. Absolutely avoid using double lines to separate lines or columns.
+
+\subsection{Algorithms}
+For algorithms, use the \verb|algorithm| environment for the float, and the \verb|algorithmic| environment for the actual algorithm (these are conceptually similar to \verb|table| and \verb|tabular|). See Algorithm~\ref{algo:gradient} for an example. You can refer to specific lines in the algorithm: e.g., line \ref{it:gradient} contains the main update step of the algorithm.
+
+\begin{algorithm}
+  \begin{algorithmic}[1]
+    \Require The gradient $\nabla f$ of a function $f:\real{}\to\real{}$, number of iterations $N$, a step size $\varepsilon$.
+    \Ensure A local optimizer $x^\ast\in\real{}$.
+    \State Let $x\gets 0$ \Comment{This is a comment}
+    \For{$k\in{1,\ldots,N}$}
+
+    \State $x\gets x-\varepsilon\nabla f(x)$. \label{it:gradient}
+    \EndFor
+    \State Let $x^\ast\gets x$
+    \label{it:endwhile}
+  \end{algorithmic}
+  \caption{Simplest version of gradient descent.}
+  \label{algo:gradient}
+\end{algorithm}
+
+ %%%%%%%%%%%%%%%%%%%%
+ \addtolength{\textheight}{-7.2cm}   % This command serves to balance the column lengths
+ % on the last page of the document manually. It shortens
+ % the textheight of the last page by a suitable amount.
+ % This command does not take effect until the next page
+ % so it should come on the page before the last. Make
+ % sure that you do not shorten the textheight too much.
+ %%%%%%%%%%%%%%%%%%%%
+
+\section{IN-LINE COMMENTING FACILITIES}
+This template includes commands for inserting in-line comments in the text. First, you need to define a new \emph{commenter} with the command \verb|\newcommenter{name}{colorName}|, where \verb|name| is the commenter's name, and \verb|colorName| is the name of a color (please refer to the documentation of the \var{xcolor} package for a list of valid names). For instance, the preamble of this template creates the commenter \var{todo}. You can then insert comments using \verb|\todo{Text of the comment}|, and you can mention a commenter names using the command \verb|\atname|, substituting \verb|name| with the commenter's name. \todo{This is an example of a comment, with a mention of the same commenter: \attodo.}
+
+\section{\LaTeX{} CODING CONVENTIONS}
+\subsection{Internal cross references}
+\label{sec:internal-xrefs}
+You can assign a label to various objects in the documents, and then use this label to
+Labels can be defined with the following command \verb|\label{abbreviation:name}|. The first part, \verb|abbreviation:|, should be \verb|eq:| for equations, \verb|tab:| for tables, \verb|fig:| for figures, \verb|it:| for items in a list, and \verb|sec:| for sections. The second part should be a descriptive but short name for the referred object (e.g., do not use numbers). Note that, for figures, it is generally safer to place the \var{label} command after the caption (otherwise, in some cases the label will refer to the previous paragraph).
+You can refer back to a label with the command \verb|\ref{abbreviation:name}|. To avoid a line break just before a reference number, use a non-breaking space as follows (see the source code), Section~\ref{sec:internal-xrefs}; an exception is typically made for for equations, for which you should use \verb|\eqref| (this command automatically includes parentheses around the equation number).
+
+\section{CONCLUSIONS}
+
+A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion typically elaborates on the importance of the work and suggests future applications and extensions.
+
+
+\section*{APPENDIX}
+
+Appendixes should appear before the acknowledgment.
+
+\section*{ACKNOWLEDGMENT}
+
+The preferred spelling of the word acknowledgment in America is without an e after the g. Avoid the stilted expression, One of us (R. B. G.) thanks . . .  Instead, try R. B. G. thanks. Put sponsor acknowledgments in the unnumbered footnote on the first page.
+
+\section*{REFERENCES}
+References are important to the reader; therefore, each citation must be complete and correct. If at all possible, references should be commonly available publications. Use BibTeX and \texttt{.bib} files for organizing your bibliography. Put all your files under the \texttt{biblio} subdirectory. Note that a reference is listed at the end of the paper only if it is actually cited. You can group multiple references in the same citation commands (these will probably be automatically \emph{compressed} to save space). For instance, only these papers will be cited \cite{Tron:CVPR07,Tron:CDC09,Tron:SPM11,nestmeyer2015decentralized}. In the IEEE style, citations appear as part of the sentence, not after the period. You can also refer to specific Theorems, Propositions and similar, as in \cite[Prop. 1]{Tron:CDC09}. In your \texttt{bib} files, use BibTeX strings for the name of conferences and journals; in this way you will ensure that different items have a consistent naming (e.g., with the use of abbreviations). See the files \texttt{biblio/IEEEfull}, \texttt{biblio/IEEEConfFull}, and \texttt{biblio/OtherFull} for examples of string definitions.
+\todo{Add examples.}
+
+\bibliographystyle{biblio/ieee}
+
+\bibliography{biblio/IEEEfull,biblio/IEEEConfFull,biblio/OtherFull,% Do not insert spaces in this command, otherwise it will not work.
+  biblio/tron,%
+  biblio/writing,%
+  biblio/formationControl,%
+  biblio/websites}
+
+
+\end{document}

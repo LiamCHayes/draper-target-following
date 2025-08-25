@@ -1,0 +1,13 @@
+%The following reformat the sections so that their labels read "Task x.y" instead of "x.y".
+%Use the starred version of the command if you do not want this for
+%some of the sections
+\renewcommand\thesection{\Alph{section}}
+\titleformat{\section}{\normalfont\large\bfseries}{Thrust \thesection:}{0.5ex}{}
+\titleformat{\subsection}[runin]{}{Thrust \thesubsection:}{0.5ex}{}
+% make run-in subsections end with a dot
+\let\copysubsection\subsection%
+\renewcommand\subsection[1]{\copysubsection{#1.}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

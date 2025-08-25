@@ -1,0 +1,223 @@
+@article{shashua2017deep,
+  title={Deep robust kalman filter},
+  author={Shashua, Shirli Di-Castro and Mannor, Shie},
+  journal={arXiv preprint arXiv:1703.02310},
+  year={2017}
+}
+
+@article{helwa2019provably,
+  title={Provably Robust Learning-Based Approach for High-Accuracy Tracking Control of Lagrangian Systems},
+  author={Helwa, Mohamed K and Heins, Adam and Schoellig, Angela P},
+  journal={IEEE Robotics and Automation Letters},
+  volume={4},
+  number={2},
+  pages={1587--1594},
+  year={2019},
+  publisher={IEEE}
+}
+
+
+@article{fisac2018general,
+  title={A general safety framework for learning-based control in uncertain robotic systems},
+  author={Fisac, Jaime F and Akametalu, Anayo K and Zeilinger, Melanie N and Kaynama, Shahab and Gillula, Jeremy and Tomlin, Claire J},
+  journal=IEEE_J_AC,
+  volume={64},
+  number={7},
+  pages={2737--2752},
+  year={2018},
+}
+
+
+@inproceedings{hoffmann2009biologically,
+  title={Biologically-inspired dynamical systems for movement generation: automatic real-time goal adaptation and obstacle avoidance},
+  author={Hoffmann, Heiko and Pastor, Peter and Park, Dae-Hyung and Schaal, Stefan},
+  booktitle=IEEE_C_ICRA,
+  pages={2587--2592},
+  year={2009},
+}
+
+@inproceedings{ijspeert2003learning,
+  title={Learning attractor landscapes for learning motor primitives},
+  author={Ijspeert, Auke J and Nakanishi, Jun and Schaal, Stefan},
+  booktitle=NIPS,
+  pages={1547--1554},
+  year={2003}
+}
+
+@article{kronander2016passive,
+  title={Passive interaction control with dynamical systems},
+  author={Kronander, Klas and Billard, Aude},
+  journal=IEEE_J_RAL,
+  volume={1},
+  number={1},
+  pages={106--113},
+  year={2016},
+}
+
+@article{ravanbakhsh2018learning,
+  title={Learning Control Lyapunov Functions from Counterexamples and Demonstrations},
+  author={Ravanbakhsh, Hadi and Sankaranarayanan, Sriram},
+  journal={arXiv preprint arXiv:1804.05285},
+  year={2018}
+}
+
+@article{khansari2017learning,
+  title={Learning potential functions from human demonstrations with encapsulated dynamic and compliant behaviors},
+  author={Khansari-Zadeh, Seyed Mohammad and Khatib, Oussama},
+  journal=AR,
+  volume={41},
+  number={1},
+  pages={45--69},
+  year={2017},
+  publisher={Springer}
+}
+
+@inproceedings{coulson2019data,
+  title={Data-enabled predictive control: In the shallows of the {DeePC}},
+  author={Coulson, Jeremy and Lygeros, John and D{\"o}rfler, Florian},
+  annote={Uses non-parametric model (output for controls is linear combination of example trajectories), embeds in MPC framework},
+  booktitle=IEEE_C_ECC,
+  pages={307--312},
+  year={2019},
+}
+
+
+%GPs
+
+@article{aswani2013provably,
+  title={Provably safe and robust learning-based model predictive control},
+  annote={Defines two systems: one reference with bounded disturbances, the other with learned disturbances. It solves robust MPC using the reference to ensure bounds for stability and safety, while optimizing a cost function on the learned model. Proposes GPs for the linear model.},
+  author={Aswani, Anil and Gonzalez, Humberto and Sastry, S Shankar and Tomlin, Claire},
+  journal={Automatica},
+  volume={49},
+  number={5},
+  pages={1216--1226},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@inproceedings{akametalu2014reachability,
+  title={Reachability-based safe learning with Gaussian processes},
+  author={Akametalu, Anayo K and Fisac, Jaime F and Gillula, Jeremy H and Kaynama, Shahab and Zeilinger, Melanie N and Tomlin, Claire J},
+  booktitle=IEEE_C_CDC,
+  pages={1424--1431},
+  year=2014,
+  organization={IEEE},
+  annote={estimate dynamics with GP, then safe reacheability analysis using HJB equation that takes into account uncertainty, then incorporate this in on-policy learning}
+}
+
+@inproceedings{koller2018learning,
+  title={Learning-based model predictive control for safe exploration},
+  author={Koller, Torsten and Berkenkamp, Felix and Turchetta, Matteo and Krause, Andreas},
+  annote={Similar to wang2018safe, use GP to learns unknown disturbance propagate this through uncertain dynamics, uses MPC instead of CBF},
+  booktitle=IEEE_C_CDC,
+  pages={6059--6066},
+  year=2018,
+}
+
+@inproceedings{berkenkamp2015safe,
+  title={Safe and robust learning control with Gaussian processes},
+  author={Berkenkamp, Felix and Schoellig, Angela P},
+  booktitle=ECC,
+  pages={2496--2501},
+  year={2015},
+}
+
+@article{chowdhary2014bayesian,
+  title={Bayesian nonparametric adaptive control using gaussian processes},
+  author={Chowdhary, Girish and Kingravi, Hassan A and How, Jonathan P and Vela, Patricio A},
+  journal={IEEE transactions on neural networks and learning systems},
+  volume={26},
+  number={3},
+  pages={537--550},
+  year={2014},
+  publisher={IEEE},
+  annote={Uses GP as the model for Model-Reference Adaptive Control}
+}
+
+@article{fan2020deep,
+  title={Deep learning tubes for tube MPC},
+  author={Fan, David D and Agha-mohammadi, Ali-akbar and Theodorou, Evangelos A},
+  journal={arXiv preprint arXiv:2002.01587},
+  year={2020},
+  annote={Use deep learning to learn how to propagate uncertainty through dynamics}
+}
+
+@article{umlauft2019feedback,
+  title={Feedback linearization based on Gaussian processes with event-triggered online learning},
+  author={Umlauft, Jonas and Hirche, Sandra},
+  journal=IEEE_J_AC,
+  volume={65},
+  number={10},
+  pages={4154--4169},
+  year={2019},
+  publisher={IEEE}
+}
+
+% See koopmanControl.bib for Koopman-related approaches
+
+@article{taylor2021active,
+  title={Active learning in robotics: A review of control principles},
+  author={Taylor, Annalisa T and Berrueta, Thomas A and Murphey, Todd D},
+  journal={Mechatronics},
+  volume={77},
+  pages={102576},
+  year={2021},
+  publisher={Elsevier},
+  annote={Optimal (most informative) exploration does not always result in orderly motion}
+}
+
+
+% data-enabled (non-parametric) methods
+
+
+@article{markovsky2021behavioral,
+  title={Behavioral systems theory in data-driven analysis, signal processing, and control},
+  author={Markovsky, Ivan and D{\"o}rfler, Florian},
+  journal={Annual Reviews in Control},
+  volume={52},
+  pages={42--64},
+  year={2021},
+  publisher={Elsevier}
+}
+
+@inproceedings{coulson2019data,
+  title={Data-enabled predictive control: In the shallows of the {DeePC}},
+  author={Coulson, Jeremy and Lygeros, John and D{\"o}rfler, Florian},
+  booktitle=IEEE_C_ECC,
+  pages={307--312},
+  year={2019},
+  organization={IEEE}
+}
+
+@inproceedings{coulson2019regularized,
+  title={Regularized and distributionally robust data-enabled predictive control},
+  author={Coulson, Jeremy and Lygeros, John and D{\"o}rfler, Florian},
+  booktitle=IEEE_C_CDC,
+  pages={2696--2701},
+  year={2019},
+  organization={IEEE},
+  annote={discusses regularization to handle noise in DeePC, and relation to distributionally robust estimation; see coulson2021distributionally for journal version}
+}
+
+@article{coulson2021distributionally,
+  title={Distributionally robust chance constrained data-enabled predictive control},
+  author={Coulson, Jeremy and Lygeros, John and D{\"o}rfler, Florian},
+  journal={IEEE Transactions on Automatic Control},
+  volume={67},
+  number={7},
+  pages={3289--3304},
+  year={2021},
+  publisher={IEEE}
+}
+
+@article{van2020data,
+  title={Data informativity: a new perspective on data-driven analysis and control},
+  author={Van Waarde, Henk J and Eising, Jaap and Trentelman, Harry L and Camlibel, M Kanat},
+  journal=IEEE_J_AC,
+  volume={65},
+  number={11},
+  pages={4753--4768},
+  year={2020},
+  publisher={IEEE}
+}

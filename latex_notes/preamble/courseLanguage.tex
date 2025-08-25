@@ -1,0 +1,51 @@
+\newif\ifmatlab
+\matlabtrue
+% Enable conditional part based on whether the language used is Matlab or not
+% \ifmatlab
+% % use Matlab
+% \else
+% % use Python or something else
+% \fi
+
+\newcommand{\hwlanguage}{\ifmatlab{}Matlab\else{}Python\fi{}}
+\newcommand{\ifmtlb}[2]{\ifmatlab{}#1\else{}#2\fi{}}
+\newcommand{\vartrue}{\var{\ifmatlab{}true\else{}True\fi{}}}
+\newcommand{\varfalse}{\var{\ifmatlab{}false\else{}False\fi{}}}
+\newcommand{\varlang}[2]{\var{\ifmtlb{#1}{#2}}}
+
+\newcommand{\langfield}[1]{\ifmtlb{.#1}{['#1']}}
+\newcommand{\functionlanguage}[3]{\function{\ifmatlab{}#1\else{}#2\fi{}}{#3}}
+\newcommand{\functionheaderlanguage}[4][]{%
+  \ifmatlab{}%
+  \functionheader[#1]{#2}{#4}%
+  \else{}%
+  \fname[Method]{#3}%
+  \fi{}%
+}
+\newenvironment{functionspeclang}[1]
+{\functionspecification\ifmatlab{}\else{}\ffilename{#1}\fi{}}
+{\endfunctionspecification}
+
+\NewEnviron{functionclassspeclang}[3][]{%
+  \ifmatlab{}%
+  \begin{functionspecification}
+    \BODY%
+  \end{functionspecification}
+  \else{}%
+  \begin{classspecification}%
+    \cname{#2}%
+    \ffilename{#3}%
+    \ifnotempty{#1}{
+      \begin{cdescription}
+        #1
+      \end{cdescription}
+    }
+    \begin{functionspecification}
+      \BODY%
+    \end{functionspecification}
+  \end{classspecification}%
+  \fi{}%
+}
+%%% Local Variables:
+%%% mode: latex
+%%% End:

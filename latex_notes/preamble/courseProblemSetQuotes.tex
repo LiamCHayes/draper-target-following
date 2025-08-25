@@ -1,0 +1,23 @@
+% Insert a random quote from file
+% ref: https://tex.stackexchange.com/questions/187000/can-latex-select-a-random-line-from-another-file
+\usepackage{datatool}
+\newcommand{\quotecomma}{,{}}
+\newcommand{\randomquote}[1][preamble/quotes.txt]{%
+  \DTLsetseparator{|}%
+  \DTLloadrawdb[keys={Number,Quote,Author}]{quotes}{#1}% Load quotes
+  \edef\RandomQuote{\number\numexpr1+\pdfuniformdeviate\DTLrowcount{quotes}}% Identify random quote
+  \dtlgetrow{quotes}{\RandomQuote}% Retrieve random quote
+  \dtlgetentryfromcurrentrow{\Quote}{1}\dtlgetentryfromcurrentrow{\Author}{2}%
+  ``\Quote''\\---~\emph{\Author}%
+}
+\newcommand{\randomquotebox}{
+  \begin{mdframed}
+    \randomquote{}
+  \end{mdframed}
+}
+
+\newcommand{\copyrightnote}{\copyright\the\year Boston University and Roberto Tron. All rights reserved. No distribution without written permission.}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:

@@ -1,0 +1,38 @@
+\usepgflibrary{shapes.arrows}
+
+\input{preamble/courseFormatting}
+\usepackage{probsoln}
+\tikzset{ax/.style={very thick,-latex},pnt/.style={minimum size=5pt,fill=blue,circle,inner sep=0pt}}
+
+%ref: https://tex.stackexchange.com/questions/201197/latex-using-the-matching-environment-in-the-exam-documentclass
+\usepackage{multicol}
+
+\newcommand{\vspaceboxdelta}{3mm}
+\newcommand{\vspacebox}[1]{\fullwidth{\tikz{\useasboundingbox (0,-\vspaceboxdelta) rectangle (\textwidth,#1\baselineskip); \draw[gray!20!white,line width=3pt] (-\vspaceboxdelta,-\vspaceboxdelta) rectangle (\textwidth+2*\vspaceboxdelta,#1\baselineskip+\vspaceboxdelta);}}\par}
+\newcommand{\vspaceoneline}{\vspacebox{2}}
+\newcommand{\vspacetwolines}{\vspacebox{3}}
+\newcommand{\vspacethreelines}{\vspacebox{4}}
+\newcommand{\vspacefourlines}{\vspacebox{5}}
+\newcommand{\vspacefivelines}{\vspacebox{6}}
+\newcommand{\vspacesixlines}{\vspacebox{7}}
+\newcommand{\vspacesevenlines}{\vspacebox{8}}
+
+%% Create a Matching question format
+\newcommand*\Matching[1]{
+\ifprintanswers
+    \textbf{#1}
+\else
+    \rule{2.7in}{0.5pt}
+\fi
+}
+\newlength\matchlena
+\newlength\matchlenb
+\settowidth\matchlena{\rule{2.7in}{0pt}}
+\newcommand\MatchQuestion[2]{%
+    \setlength\matchlenb{\linewidth}
+    \addtolength\matchlenb{-\matchlena}
+    \parbox[t]{\matchlena}{\Matching{#1}}\enspace\parbox[t]{\matchlenb}{#2}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% End:
