@@ -48,16 +48,76 @@ Template \& Guide for IEEE-Style Technical Papers
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{INTRODUCTION}
 
-This template provides authors with most of the formatting specifications, and writing and typesetting tips needed for preparing your technical papers.
-As in any ``rule'' in writing, sooner or later you will find exceptions where not following the suggestions of this document makes sense; however, you should always ask yourself whether the document would improve by following them.
+Autonomous detection and tracking of moving targets by means of a small autonomous drone are increasingly needed especially in challenging environments (nighttime, GPS-denied, high speeds). On prior programs, Draper has developed and deployed visual servo-based guidance algorithms to meet these needs for static or predictably moving targets. Visual servoing enables a vehicle to keep a target in the center of its field-of-view (FOV) by directly using image measurements of the target and computing commands accordingly. In previous projects, the target of interest has been either assumed to be slow-moving or static, or to be moving in a predictable manner (non-evasive). Visual servoing also heavily relies on good estimates of distance to the target, which, in practice, is hard to obtain in a robust way, especially with vision-based sensors. Furthermore, all completed projects have limited their scope to a single target of interest.
 
-Use this sample document as your LaTeX source file to create your document. Rename this file using the convention year-conference-camelCaseDescription, e.g., \texttt{2020-icra-multirobotPlanning.tex}.
+The proposed research would develop a stability-guaranteed control algorithm for the tracking and following of multiple evasive targets. This research will explore methods that relax the constraint of having near-perfect distance estimates to the target. In addition, challenging conditions might be present, such as unknown kinematic/dynamics, as well as the presence of obstacles and possibly limited sensing capabilities of the follower robot. The research can be extended to tackle
+such challenging conditions.
 
-\subsection{Maintaining the Integrity of the Specifications}
+\section{LITERATURE REVIEW}
 
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations.
+Existing research has covered algorithms for autonomous detection and tracking, but with little or no stability guarantees. While we do not consider detection in this research, combined detection and tracking research provides a good reference to where the field is currently at. \cite{multi_target_clustered} covers distributed multi-target detection and tracking with a multi-robot system where the targets are clustered. They describe a tracking system that combines instantaneous and cumulative target states, which is able to track detected targets percisely with noisy measurement. There is also a Deep Reinforcement Learning approach described in \cite{reinforcement_learning}, where the learned tracker actively searches for and tracks a target. This is an end-to-end solution to tracking and pursuit that obtains good results. Both of these solutions are able to track successfully with noisy measurements; one through the tracking algorithm and the other by incorporating the noise into an end-to-end solution. Other papers explore CBF functions for the pursuit-evasion problem with visibility constrints like FOV and line-of-sight occlusions \cite{fov_line_of_sight_paper}, observer-based methods with CBFs \cite{observer_based_paper}, for multi-robot systems keeping all robots in the FOV \cite{multi_robot_paper}, for mobile manipulators \cite{mobile_manipulator_paper}, and with learned CBFs \cite{learned_cbf_paper}. These papers have success with tracking targets using CBFs, but there are no stability guarantees given noisy measurements. There are also some examples that do not rely on CBFs to keep the target in the FOV such as \cite{direct_control_paper} which directly controls relative angles and distances, \cite{rrt_paper} using a modified RRT, and other visual servoing techniques \cite{visual_servo_paper}. In this research, we would like to combine the ability to track targets with noisy measurements similar to \cite{multi_target_clustered} and \cite{reinforcement_learning} with a CBF solution to the pursuit-evasion problem \cite{fov_line_of_sight_paper} \cite{observer_based_paper} \cite{multi_robot_paper} \cite{mobile_manipulator_paper} \cite{learned_cbf_paper}, incorporating stability guarantees given a bound on the noise in the measurements.
+
+\section{TECHNICAL DETAILS}
+
+The algorithm will be based on Control Barrier Functions (CBFs), which is a mathematical way to enforce safety in control systems. Specifically, a CBF is a function that maps from the state space of the robot to the set of real numbers, where the \textit{safe set} is the set of all states that result in a positive value from the CBF. We can use this function to impose constraints directly on the control inputs to the robot, which will constrain the system trajectory to remain in the safe set. A key advantage of CBFs is that they allow for formal, mathematical proofs that guarantee the system remains in the safe set.
+
+In the case of this thesis, we are trying to autonomously track moving targets, providing a stability guarantee given bounded distance and bearing estimation errors. CBFs are uniquely suited to this task because, as stated before, they allow for formal, mathematical proofs of system safety. Most implementations for field-of-view constraints rely on a known position (distance and bearing) relative to the robot. In reality, this is difficult to obtain and there will always be an estimation error.
+
+Our prior work \cite{tron_paper} proposes a CBF for keeping a set of features in the FOV of the robot. The proposed CBF is implemented in the form of the following optimization problem where $h(x)$ is the CBF. $h(x)$ is a function that becomes more positive if a feature is closer to the optical axis of the camera, and becomes negative when the feature crosses the boundary of its FOV.
+
+\begin{equation} \label{qp}
+\begin{aligned}
+    & \min_{u \in \mathbb{R}^3} \|u - u^*\|^2 \\
+    & \text{s.t.} \quad \langle \nabla h, u \rangle + \gamma(h(x)) \geq 0
+\end{aligned}
+\end{equation}
+
+Where $u^*$ is the nominal trajectory, \\
+$h(x): \mathbb{R}^3 \times SO(3) \to \mathbb{R} = \beta_i^T(p) R e_c - \cos \psi_F$, \\
+$\beta_i(p)$ is the bearing from the robot position $p$ to the point $i$, \\
+$R$ is the rotation of the rigid body, \\
+$e_c$ is the orientation of the optical axis in the body frame of the robot, \\
+$\psi_F$ is the angle between the optical axis and the edge of the FOV, \\
+$\gamma: \mathbb{R} \to \mathbb{R}$ is a class $\mathcal{K}$ function, i.e. it satisfies
+\[
+\gamma(0) = 0
+\]
+\[
+x_1 < x_2 \implies \gamma(x_1) < \gamma(x_2), \quad \forall x \in \mathbb{R}
+\]
+
+The constraint in equation \eqref{qp} expands to this:
+
+\[
+- \frac{1}{d} e_c^T R^T P_{\beta} v - \beta^T R [e_c]_\times \omega + \gamma(h(x)) \geq 0
+\]
+
+Where $d$ is the distance to the target, \\
+$P_{\beta}$ is the projection matrix onto the plane perpendicular to $\beta$, \\
+$v$ is the velocity of the robot, \\
+$[. \ ]_\times$ is the hat map that maps a vector in $\mathbb{R}^3$ to a skew-symmetric matrix such that $[a]_\times b = a \times b$ for $a,b \in \mathbb{R}^3$, \\
+$\omega$ is the angular velocity of the robot.
+
+You can see that the first term of the constraint depends explicitly on the actual distance measurement $d$. The paper shows that by splitting the constraint, we can express the problem in terms of the estimated distance measurement $\hat{d}$ and still prove that the safe set is forward invariant (given a bound on the distance measurement error). The resulting optimization problem of the split CBF is the following:
+
+\begin{align*}
+\min_{u \in \mathbb{R}^3, c_1, c_2 \in \mathbb{R}} \quad & \| u - u^*(x) \|^2 \\
+\text{Subject to:} \quad & -\frac{1}{\hat{d}} e_c^T R^T P_{\beta}^T v + c_1 \gamma(h(x)) \geq 0, \\
+& -\beta^T R [e_c]_\times \omega + c_2 \gamma(h(x)) \geq 0, \\
+& c_1 + c_2 = \gamma_0 > 0, \\
+& \frac{\gamma_0}{1 - d_M} < c_2 < \frac{\gamma_0}{1 - d_m}.
+\end{align*}
+
+We will be extending and implementing this for multiple moving targets with an unknown motion model. The function $h$ that defines the safe set will now depend on both the system state and the target(s) state. So, the CBF constraint expands to:
+
+\[
+\langle \nabla_{\text{target}} h, u_{\text{target}} \rangle + \langle \nabla_p h, v \rangle + \langle \nabla_R h, \omega \rangle + \gamma(h(x)) \geq 0,
+\]
+
+where we now have a term corresponding to the value of $h$ as the target(s) change position on top of the terms that describe $h$ as the velocity and angular velocity of the robot changes.
 
 \section{WRITING ADVICE}
 
@@ -434,7 +494,8 @@ References are important to the reader; therefore, each citation must be complet
   biblio/tron,%
   biblio/writing,%
   biblio/formationControl,%
-  biblio/websites}
+  biblio/websites,%
+  biblio/liam_lit_review}
 
 
 \end{document}
